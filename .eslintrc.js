@@ -49,6 +49,8 @@ module.exports = {
         //  强制在类的方法内使用this
         "class-methods-use-this": "off",
         //  推荐无状态组件使用函数
-        "react/prefer-stateless-function": "off"
+        "react/prefer-stateless-function": "off",
+        //  强制对prop使用类型检查
+        "react/prop-types": "off"
     }
 };
