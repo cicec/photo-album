@@ -47,6 +47,8 @@ module.exports = {
         //  禁止赋值运算符出现在条件语句中
         "no-cond-assign": "off",
         //  强制在类的方法内使用this
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        //  推荐无状态组件使用函数
+        "react/prefer-stateless-function": "off"
     }
 };
