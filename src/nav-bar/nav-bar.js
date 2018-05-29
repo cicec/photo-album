@@ -23,7 +23,7 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            gallerys.map(gallery => <GalleryItem galleryInfo={gallery} />)
+                            gallerys.map(gallery => <GalleryItem key={gallery.id} galleryInfo={gallery} />)
                         }
                     </ul>
                 </div>
