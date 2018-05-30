@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import GalleryItem from './gallery-item'
 
+@inject('stores')
 @observer
 class NavBar extends Component {
     render() {
-        const { gallerys } = this.props.store
+        const store = this.props.stores.navBarStore
         return (
             <div>
                 <div className="user-info">
@@ -21,7 +22,7 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            gallerys.map(gallery => <GalleryItem key={gallery.id} galleryInfo={gallery} />)
+                            store.gallerys.map(gallery => <GalleryItem key={gallery.id} galleryInfo={gallery} />)
                         }
                     </ul>
                 </div>
