@@ -5,10 +5,25 @@ import { inject, observer } from 'mobx-react'
 @observer
 class ImgViewer extends Component {
     render() {
-        const { uiState } = this.props.stores
         return (
             <div className="img-viewer">
-                Img viewer for gallery: {uiState.viewedGallery}.
+                <h2>人物</h2>
+                <div className="imgs">
+                    <ul>
+                        <li>
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                        </li>
+                        <li>
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                        </li>
+                        <li>
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                        </li>
+                        <li>
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                        </li>
+                    </ul>
+                </div>
             </div>
         )
     }
