@@ -11,16 +11,16 @@ class ImgViewer extends Component {
                 <div className="imgs">
                     <ul>
                         <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
                         </li>
                         <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
                         </li>
                         <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
                         </li>
                         <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2018-05-31-photo-gallery-example.jpg" alt="" />
+                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
                         </li>
                     </ul>
                 </div>

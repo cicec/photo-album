@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import GalleryItem from './gallery-item'
+import './nav-bar.css'
 
 @inject('stores')
 @observer
@@ -8,10 +9,10 @@ class NavBar extends Component {
     render() {
         const store = this.props.stores.navBarStore
         return (
-            <div>
+            <div className="nav-bar">
                 <div className="user-info">
                     <div className="avatar">
-                        <img src="./img/avatar.jpg" alt="" />
+                        <img src="http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg" alt="" />
                     </div>
                     <h4>Amanda Lorrense</h4>
                     <p>daughter, bloger, traveler</p>
