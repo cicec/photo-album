@@ -6,10 +6,12 @@ class GalleryItem extends Component {
         return (
             <li>
                 <div className="logo">
-                    <img src="" alt="" />
+                    <img src={galleryInfo.cover} alt="" />
                 </div>
-                <h4>{galleryInfo.name}</h4>
-                <p>{galleryInfo.description}</p>
+                <div className="info">
+                    <h4>{galleryInfo.name}</h4>
+                    <p>{galleryInfo.description}</p>
+                </div>
             </li>
         )
     }
