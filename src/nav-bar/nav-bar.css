@@ -1,5 +1,6 @@
 .nav-bar {
     flex: 0 0 25%;
+    box-shadow: 0 0 60px #F4F4F4;
 }
 
 .user-info {

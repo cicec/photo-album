@@ -25,6 +25,10 @@ button:focus {
     outline: none;
 }
 
+ul {
+    list-style: none;
+}
+
 .icon {
     width: 1em;
     height: 1em;
