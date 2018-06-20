@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import stores from './stores'
 import NavBar from './nav-bar'
 import ImgViewer from './img-viewer'
-import './icons.js'
+import './icons'
 import './App.css'
 
 class App extends Component {

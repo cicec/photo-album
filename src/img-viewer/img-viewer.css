@@ -1,0 +1,26 @@
+.img-viewer {
+    background: #FCFCFC;
+    padding: .4rem .6rem;
+}
+
+.img-viewer>h2 {
+    color: #666666;
+    font-size: .15rem;
+}
+
+.img-viewer .imgs>ul {
+    margin-top: .2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.img-viewer .imgs>ul>li {
+    flex: 0 0 32%;
+    margin: .2rem 0;
+}
+
+.img-viewer .imgs>ul>li>img {
+    width: 100%;
+    border-radius: .06rem;
+}
