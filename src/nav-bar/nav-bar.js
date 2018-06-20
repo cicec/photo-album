@@ -15,8 +15,8 @@ class NavBar extends Component {
                         <img src="http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg" alt="" />
                     </div>
                     <div className="info">
-                        <h4>Amanda Lorrense</h4>
-                        <p>daughter, bloger, traveler</p>
+                        <h4>火车王里诺艾</h4>
+                        <p>我是，火车王！</p>
                     </div>
                 </div>
                 <div className="add-gallery">
