@@ -3,7 +3,7 @@
 }
 
 .user-info {
-    padding: .32rem;
+    padding: .4rem;
     border-bottom: 1px solid #F4F4F4;
     display: flex;
 }
@@ -31,16 +31,20 @@
     font-size: .14rem;
 }
 
+.add-gallery {
+    padding: .28rem;
+    display: flex;
+}
+
 .add-gallery>button{
-    padding: 0;
+    width: .54rem;
+    height: .54rem;
     border-radius: 100%;
     border: none;
     background: #FF5152;
     color: #FFFFFF;
-}
-
-.add-gallery>button>img {
-    width: .4rem;
+    font-size: .28rem;
+    margin: auto;
 }
 
 .gallery-list>ul {

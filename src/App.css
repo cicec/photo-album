@@ -16,6 +16,15 @@ p {
     margin: 0;
 }
 
+button {
+    border: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
 .icon {
     width: 1em;
     height: 1em;
