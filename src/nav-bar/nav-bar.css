@@ -3,6 +3,7 @@
 }
 
 .user-info {
+    padding: .32rem;
     border-bottom: 1px solid #F4F4F4;
     display: flex;
 }
@@ -12,6 +13,20 @@
     border-radius: 50%;
 }
 
-.user-info>h4 {
+.user-info .info {
+    margin-left: .24rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-info .info>h4 {
     color: #666666;
+    font-size: .15rem;
+    margin-bottom: .06rem;
+}
+
+.user-info .info>p {
+    color: #A0A0A0;
+    font-size: .14rem;
 }

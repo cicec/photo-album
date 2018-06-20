@@ -14,8 +14,10 @@ class NavBar extends Component {
                     <div className="avatar">
                         <img src="http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg" alt="" />
                     </div>
-                    <h4>Amanda Lorrense</h4>
-                    <p>daughter, bloger, traveler</p>
+                    <div className="info">
+                        <h4>Amanda Lorrense</h4>
+                        <p>daughter, bloger, traveler</p>
+                    </div>
                 </div>
                 <div className="add-gallery">
                     <button>+</button>
