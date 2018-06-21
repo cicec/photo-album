@@ -3,9 +3,21 @@
     padding: .4rem .6rem;
 }
 
-.img-viewer>h2 {
+.img-viewer .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-viewer .header>h2 {
     color: #666666;
     font-size: .15rem;
+}
+
+.img-viewer .header>button {
+    color: #FF5152;
+    font-size: .32rem;
+    background: transparent;
 }
 
 .img-viewer .imgs>ul {

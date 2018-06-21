@@ -8,7 +8,14 @@ class ImgViewer extends Component {
     render() {
         return (
             <div className="img-viewer">
-                <h2>人物</h2>
+                <div className="header">
+                    <h2>人物</h2>
+                    <button>
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-upload" />
+                        </svg>
+                    </button>
+                </div>
                 <div className="imgs">
                     <ul>
                         <li>
