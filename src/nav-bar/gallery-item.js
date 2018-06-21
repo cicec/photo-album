@@ -12,6 +12,10 @@ class GalleryItem extends Component {
                     <h4>{galleryInfo.name}</h4>
                     <p>{galleryInfo.description}</p>
                 </div>
+                <div className="number">
+                    <h4>{galleryInfo.number}</h4>
+                    <p>pics</p>
+                </div>
             </li>
         )
     }
