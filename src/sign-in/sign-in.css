@@ -1,0 +1,43 @@
+.sign-in {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.sign-in>form {
+    margin: auto;
+}
+
+.sign-in>form>label {
+    display: block;
+    position: relative;
+}
+
+.sign-in>form>label>svg {
+    position: absolute;
+    left: .12rem;
+    top: .085rem;
+    font-size: .24rem;
+}
+
+.sign-in>form>label>input {
+    width: 4rem;
+    display: block;
+    border: none;
+    padding: .1rem 0 .1rem .5rem;
+    border-radius: .2rem;
+    transition: all 0.2s;
+}
+
+.sign-in>form>label>input:focus {
+    outline: none;
+    box-shadow:  0 15px 60px 0px #B5E4C4;
+}
+
+.sign-in>form>button {
+    width: 100%;
+    padding: .1rem;
+    border-radius: .2rem;
+    background: #50C881;
+    color: #FFFFFF;
+}

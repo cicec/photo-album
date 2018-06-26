@@ -11,15 +11,27 @@ class SignIn extends Component {
     }
 
     signIn() {
-        console.log(2)
         const { uiState } = this.props.stores
         uiState.changeCurrentState(uiState.states.signed)
     }
     render() {
         return (
             <div className="sign-in">
-                登录组件
-                <button onClick={this.signIn}>登录</button>
+                <form>
+                    <label htmlFor="username">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-people" />
+                        </svg>
+                        <input type="text" name="username" id="username" placeholder="请输入邮箱或手机号" />
+                    </label>
+                    <label htmlFor="username">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-lock" />
+                        </svg>
+                        <input type="password" name="password" id="password" placeholder="请输入密码" />
+                    </label>
+                    <button>登录</button>
+                </form>
             </div>
         )
     }
