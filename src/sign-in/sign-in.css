@@ -39,12 +39,21 @@
 
 .sign-in>form>label>input::placeholder {
     color: rgba(0, 0, 0, 0.4);
+    font-size: .15rem;
 }
 
-.sign-in>form>button {
+.sign-in>form .signinBtn {
     width: 100%;
     padding: .1rem;
     border-radius: .2rem;
     background: #50C881;
     color: #FFFFFF;
+}
+
+.sign-in>form .signupBtn {
+    background: transparent;
+    color: rgba(0, 0, 0, 0.4);
+    margin-top: .1rem;
+    float: right;
+    font-size: .15rem;
 }
