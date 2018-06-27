@@ -6,6 +6,7 @@
 
 .sign-in>form {
     margin: auto;
+    transform: translateY(-.8rem);
 }
 
 .sign-in>form>label {
@@ -17,22 +18,27 @@
 .sign-in>form>label>svg {
     position: absolute;
     left: .16rem;
-    top: .12rem;
+    top: .13rem;
     font-size: .24rem;
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .sign-in>form>label>input {
     width: 4rem;
     display: block;
     border: none;
-    padding: .14rem .2rem .14rem .5rem;
+    padding: .14rem .3rem .14rem .6rem;
     border-radius: .3rem;
-    transition: all 0.2s;
+    transition: all 0.4s;
 }
 
 .sign-in>form>label>input:focus {
     outline: none;
     box-shadow:  0 10px 40px 0px #B5E4C4;
+}
+
+.sign-in>form>label>input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .sign-in>form>button {
