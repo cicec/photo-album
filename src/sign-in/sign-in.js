@@ -23,7 +23,7 @@ class SignIn extends Component {
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-people" />
                         </svg>
-                        <input type="text" name="username" id="username" placeholder="请输入邮箱或手机号" />
+                        <input type="text" name="username" id="username" placeholder="请输入用户名" />
                     </label>
                     <label htmlFor="password">
                         <svg className="icon" aria-hidden="true">
@@ -32,7 +32,7 @@ class SignIn extends Component {
                         <input type="password" name="password" id="password" placeholder="请输入密码" />
                     </label>
                     <button className="signinBtn">登录</button>
-                    <button className="signupBtn" onClick={this.changeToSignupState}>没有账号？马上注册！</button>
+                    <button className="signupBtn" onClick={this.changeToSignupState}>没有账号？现在注册！</button>
                 </form>
             </div>
         )
