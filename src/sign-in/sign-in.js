@@ -7,13 +7,14 @@ import './sign-in.css'
 class SignIn extends Component {
     constructor() {
         super()
-        this.signIn = this.signIn.bind(this)
+        this.changeToSignupState = this.changeToSignupState.bind(this)
     }
 
-    signIn() {
+    changeToSignupState() {
         const { uiState } = this.props.stores
-        uiState.changeCurrentState(uiState.states.signed)
+        uiState.changeCurrentState(uiState.states.signUp)
     }
+
     render() {
         return (
             <div className="sign-in">
@@ -31,7 +32,7 @@ class SignIn extends Component {
                         <input type="password" name="password" id="password" placeholder="请输入密码" />
                     </label>
                     <button className="signinBtn">登录</button>
-                    <button className="signupBtn">没有账号？马上注册！</button>
+                    <button className="signupBtn" onClick={this.changeToSignupState}>没有账号？马上注册！</button>
                 </form>
             </div>
         )
