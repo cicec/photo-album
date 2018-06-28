@@ -1,9 +1,7 @@
 import uiState from './ui-state'
-import navBarStore from './nav-bar'
+import userStore from './user'
+import albumStore from './album'
 
-const stores = {
-    uiState,
-    navBarStore
-}
+const stores = { uiState, userStore, albumStore }
 
 export default stores

@@ -7,7 +7,7 @@ import './nav-bar.css'
 @observer
 class NavBar extends Component {
     render() {
-        const store = this.props.stores.navBarStore
+        const store = this.props.stores.albumStore
         return (
             <div className="nav-bar">
                 <div className="user-info">
@@ -29,7 +29,7 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            store.gallerys.map(gallery => <GalleryItem key={gallery.id} galleryInfo={gallery} />)
+                            store.albums.map(album => <GalleryItem key={album.id} galleryInfo={album} />)
                         }
                     </ul>
                 </div>
