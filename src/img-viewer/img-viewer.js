@@ -12,7 +12,7 @@ class ImgViewer extends Component {
                     <h2>人物</h2>
                     <button>
                         <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-upload" />
+                            <use xlinkHref="#icon-cloud-upload" />
                         </svg>
                     </button>
                 </div>

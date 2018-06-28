@@ -22,7 +22,7 @@ class NavBar extends Component {
                 <div className="add-gallery">
                     <button>
                         <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-add" />
+                            <use xlinkHref="#icon-plus" />
                         </svg>
                     </button>
                 </div>

@@ -44,7 +44,7 @@ class SignIn extends Component {
                 <form className="clearfix" onSubmit={this.handleSubmit}>
                     <label htmlFor="username">
                         <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-people" />
+                            <use xlinkHref="#icon-user" />
                         </svg>
                         <input type="text" name="name" id="name" placeholder="请输入用户名" value={this.state.name} onChange={this.handleChange} />
                     </label>

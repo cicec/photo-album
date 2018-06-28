@@ -41,7 +41,7 @@ class SignUp extends Component {
                 <form className="clearfix">
                     <label htmlFor="name">
                         <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-people" />
+                            <use xlinkHref="#icon-user" />
                         </svg>
                         <input type="text" name="name" id="name" placeholder="请输入用户名" value={this.state.name} onChange={this.handleChange} />
                     </label>
@@ -53,7 +53,7 @@ class SignUp extends Component {
                     </label>
                     <label htmlFor="phone">
                         <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-mobilephone" />
+                            <use xlinkHref="#icon-mobile" />
                         </svg>
                         <input type="text" name="phone" id="phone" placeholder="请输入手机号（可选）" value={this.state.phone} onChange={this.handleChange} />
                     </label>
