@@ -20,17 +20,14 @@ class SignIn extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        fetch('http://localhost:8080/signin', {
-            method: 'POST',
-            body: JSON.stringify(this.state),
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        }).then(response => response.json())
-            .then((result) => {
-                if (result.status > 0) {
-                    const { uiState } = this.props.stores
-                    uiState.changeCurrentState(uiState.states.signed)
-                }
-            })
+        if (!this.state.name || !this.state.password) return
+        const store = this.props.stores.userStore
+        store.submitSigninInfo(this.state).then((result) => {
+            if (result.status > 0) {
+                const { uiState } = this.props.stores
+                uiState.changeCurrentState(uiState.states.signed)
+            }
+        })
     }
 
     changeToSignupState() {
