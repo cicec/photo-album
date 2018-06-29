@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import { withRouter } from 'react-router-dom'
 import './sign-in.css'
 
 @inject('stores')
@@ -58,4 +57,4 @@ class SignIn extends Component {
     }
 }
 
-export default withRouter(SignIn)
+export default SignIn
