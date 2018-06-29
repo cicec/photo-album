@@ -20,14 +20,14 @@ class SignUp extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        fetch('http://localhost:8080/signup', {
-            method: 'POST',
-            body: JSON.stringify(this.state),
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        }).then(response => response.json())
-            .then((result) => {
-                console.log(result)
-            })
+        if (!this.state.name || !this.state.password) return
+        const store = this.props.stores.userStore
+        store.submitUserInfo('/signup', this.state).then((result) => {
+            if (result.status > 0) {
+                const { uiState } = this.props.stores
+                uiState.changeCurrentState(uiState.states.signed)
+            }
+        })
     }
 
     changeToSigninState() {
@@ -38,7 +38,7 @@ class SignUp extends Component {
     render() {
         return (
             <div className="sign-up">
-                <form className="clearfix">
+                <form className="clearfix" onSubmit={this.handleSubmit}>
                     <label htmlFor="name">
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-user" />

@@ -1,11 +1,12 @@
 import { observable, action } from 'mobx'
 
 class UserStore {
-    @observable signedUser = {}
+    constructor() {
+        this.url = 'http://localhost:8080'
+    }
 
-    @action
-    submitSigninInfo(info) {
-        return fetch('http://localhost:8080/signin', {
+    submitUserInfo(path, info) {
+        return fetch(`${this.url}${path}`, {
             method: 'POST',
             body: JSON.stringify(info),
             headers: { 'Content-Type': 'application/json; charset=utf-8' }
