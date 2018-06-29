@@ -10,7 +10,7 @@ class SignUp extends Component {
         this.state = { name: '', password: '', phone: '', email: '' }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.changeToSigninState = this.changeToSigninState.bind(this)
+        this.jumpToSignInPage = this.jumpToSignInPage.bind(this)
     }
 
     handleChange(event) {
@@ -22,17 +22,11 @@ class SignUp extends Component {
         event.preventDefault()
         if (!this.state.name || !this.state.password) return
         const store = this.props.stores.userStore
-        store.submitUserInfo('/signup', this.state).then((result) => {
-            if (result.status > 0) {
-                const { uiState } = this.props.stores
-                uiState.changeCurrentState(uiState.states.signed)
-            }
-        })
+        store.submitUserInfo('/signup', this.state)
     }
 
-    changeToSigninState() {
-        const { uiState } = this.props.stores
-        uiState.changeCurrentState(uiState.states.signIn)
+    jumpToSignInPage() {
+        this.props.history.push('/signin')
     }
 
     render() {
@@ -64,7 +58,7 @@ class SignUp extends Component {
                         <input type="text" name="email" id="email" placeholder="请输入邮箱（可选）" value={this.state.email} onChange={this.handleChange} />
                     </label>
                     <button className="signupBtn">注册</button>
-                    <button className="signinBtn" onClick={this.changeToSigninState}>已有账号？马上登录！</button>
+                    <button className="signinBtn" onClick={this.jumpToSignInPage}>已有账号？马上登录！</button>
                 </form>
             </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import { withRouter } from 'react-router-dom'
 import './sign-in.css'
 
 @inject('stores')
@@ -10,7 +11,7 @@ class SignIn extends Component {
         this.state = { name: '', password: '' }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.changeToSignupState = this.changeToSignupState.bind(this)
+        this.jumpToSignUpPage = this.jumpToSignUpPage.bind(this)
     }
 
     handleChange(event) {
@@ -24,15 +25,13 @@ class SignIn extends Component {
         const store = this.props.stores.userStore
         store.submitUserInfo('/signin', this.state).then((result) => {
             if (result.status > 0) {
-                const { uiState } = this.props.stores
-                uiState.changeCurrentState(uiState.states.signed)
+                this.props.history.push('/')
             }
         })
     }
 
-    changeToSignupState() {
-        const { uiState } = this.props.stores
-        uiState.changeCurrentState(uiState.states.signUp)
+    jumpToSignUpPage() {
+        this.props.history.push('/signup')
     }
 
     render() {
@@ -52,11 +51,11 @@ class SignIn extends Component {
                         <input type="password" name="password" id="password" placeholder="请输入密码" value={this.state.password} onChange={this.handleChange} />
                     </label>
                     <button className="signinBtn">登录</button>
-                    <button className="signupBtn" onClick={this.changeToSignupState}>没有账号？现在注册！</button>
+                    <button className="signupBtn" onClick={this.jumpToSignUpPage}>没有账号？现在注册！</button>
                 </form>
             </div>
         )
     }
 }
 
-export default SignIn
+export default withRouter(SignIn)

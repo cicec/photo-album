@@ -1,5 +1,3 @@
-import { observable, action } from 'mobx'
-
 class UserStore {
     constructor() {
         this.url = 'http://localhost:8080'
