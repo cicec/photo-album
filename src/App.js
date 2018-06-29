@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Provider } from 'mobx-react'
+import { Provider, observer } from 'mobx-react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import stores from './stores'
 import SignIn from './sign-in'
@@ -8,10 +8,23 @@ import NavBar from './nav-bar'
 import ImgViewer from './img-viewer'
 import './icons'
 
+@observer
 class App extends Component {
     render() {
         const MainPage = () => (
             <main>
+                {/* <button
+                    onClick={() => {
+                        fetch('http://localhost:8080/signout', {
+                            method: 'GET',
+                            credentials: 'include',
+                        }).then(response => response.json())
+                            .then((result) => {
+                                console.log(result)
+                            })
+                    }}
+                >退出登录
+                </button> */}
                 <NavBar />
                 <ImgViewer />
             </main>
@@ -23,7 +36,18 @@ class App extends Component {
                         <Switch>
                             <Route path="/signin" component={SignIn} />
                             <Route path="/signup" component={SignUp} />
-                            <Route path="/" component={MainPage} />
+                            <Route
+                                path="/"
+                                render={(props) => {
+                                    const { userStore } = stores
+                                    stores.userStore.authUserInfo().then(() => {
+                                        if (!userStore.userInfo.isSigned) {
+                                            props.history.push('/signin')
+                                        }
+                                    })
+                                    return <MainPage />
+                                }}
+                            />
                         </Switch>
                     </div>
                 </Provider>
