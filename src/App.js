@@ -6,6 +6,7 @@ import SignIn from './sign-in'
 import SignUp from './sign-up'
 import NavBar from './nav-bar'
 import ImgViewer from './img-viewer'
+import UserCard from './user-card'
 import './icons'
 
 @observer
@@ -27,6 +28,7 @@ class App extends Component {
                 </button> */}
                 <NavBar />
                 <ImgViewer />
+                <UserCard />
             </main>
         )
         return (

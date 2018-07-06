@@ -1,0 +1,18 @@
+.user-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 1;
+    display: flex;
+}
+
+.user-card .card {
+    background: #FFFFFF;
+    margin: auto;
+    width: 5rem;
+    height: 6rem;
+    border-radius: .2rem;
+}
