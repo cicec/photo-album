@@ -16,8 +16,16 @@ class UserStore {
         }).then(response => response.json())
     }
 
-    authUserInfo() {
-        return fetch(`${this.url}/auth`, {
+    signIn(info) {
+        return this.submitUserInfo('/signin', info)
+    }
+
+    signUp(info) {
+        return this.submitUserInfo('/signup', info)
+    }
+
+    getUserInfo() {
+        return fetch(`${this.url}/getuserinfo`, {
             method: 'GET',
             credentials: 'include',
         }).then(response => response.json()).then((result) => {

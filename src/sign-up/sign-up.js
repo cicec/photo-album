@@ -22,7 +22,9 @@ class SignUp extends Component {
         event.preventDefault()
         if (!this.state.name || !this.state.password) return
         const store = this.props.stores.userStore
-        store.submitUserInfo('/signup', this.state)
+        store.signUp(this.state).then((result) => {
+            console.log(result)
+        })
     }
 
     jumpToSignInPage() {

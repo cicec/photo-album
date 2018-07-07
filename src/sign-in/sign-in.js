@@ -22,7 +22,8 @@ class SignIn extends Component {
         event.preventDefault()
         if (!this.state.name || !this.state.password) return
         const store = this.props.stores.userStore
-        store.submitUserInfo('/signin', this.state).then((result) => {
+        store.signIn(this.state).then((result) => {
+            console.log(result)
             if (result.status > 0) {
                 this.props.history.push('/')
             }
