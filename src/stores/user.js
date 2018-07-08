@@ -32,7 +32,7 @@ class UserStore {
             if (result.status === 0) {
                 this.userInfo.isSigned = false
             } else {
-                this.userInfo.isSigned = true
+                this.userInfo = { ...result.userInfo, isSigned: true }
             }
             return result
         })

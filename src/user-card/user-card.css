@@ -16,3 +16,7 @@
     height: 80%;
     border-radius: .2rem;
 }
+
+.user-card .card .avatar>img {
+    width: 2rem;
+}
