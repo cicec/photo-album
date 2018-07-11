@@ -4,7 +4,7 @@ class UserStore {
     @observable userInfo = { isSigned: true }
 
     constructor() {
-        this.url = 'http://localhost:8080'
+        this.url = '/api'
     }
 
     submitUserInfo(path, info) {
