@@ -1,7 +1,7 @@
 import { observable } from 'mobx'
 
 class UserStore {
-    @observable userInfo = { isSigned: true }
+    @observable user = { signed: true }
 
     constructor() {
         this.url = '/api'
@@ -30,9 +30,9 @@ class UserStore {
             credentials: 'include',
         }).then(response => response.json()).then((result) => {
             if (result.status === 0) {
-                this.userInfo.isSigned = false
+                this.user.signed = false
             } else {
-                this.userInfo = { ...result.userInfo, isSigned: true }
+                this.user = { ...result.user, signed: true }
             }
             return result
         })

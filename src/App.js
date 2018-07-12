@@ -42,8 +42,8 @@ class App extends Component {
                                 path="/"
                                 render={(props) => {
                                     const { userStore } = stores
-                                    stores.userStore.getUserInfo().then(() => {
-                                        if (!userStore.userInfo.isSigned) {
+                                    userStore.getUserInfo().then(() => {
+                                        if (!userStore.userInfo.signed) {
                                             props.history.push('/signin')
                                         }
                                     })
