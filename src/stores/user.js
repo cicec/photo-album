@@ -4,15 +4,7 @@ class UserStore {
     @observable user = { signed: true }
 
     constructor() {
-        this.url = '/api'
-        this.user = {
-            ...this.user,
-            name: 'CC',
-            avatar: 'http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg',
-            description: '简单介绍一下自己',
-            phone: '15545562242',
-            email: 'clancysong@gmail.com',
-        }
+        this.url = 'http://localhost:8080/photo-album/api'
     }
 
     submitUserInfo(path, info) {
@@ -41,6 +33,7 @@ class UserStore {
                 this.user.signed = false
             } else {
                 this.user = { ...result.user, signed: true }
+                this.user.avatar = 'http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg'
             }
             return result
         })

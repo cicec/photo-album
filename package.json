@@ -2,13 +2,6 @@
   "name": "init",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:8080/photo-album",
-      "secure": false,
-      "changeOrigin": true
-    }
-  },
   "homepage": "https://clancysong.github.io/photo-album/dist",
   "dependencies": {
     "mobx": "^4.3.0",
