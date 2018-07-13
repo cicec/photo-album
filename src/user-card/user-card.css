@@ -12,19 +12,26 @@
 .user-card .card {
     background: #FFFFFF;
     margin: auto;
-    width: 3.2rem;
+    width: 3.4rem;
     min-height: 60%;
     border-radius: .2rem;
     padding: .4rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .6);
     position: relative;
 }
 
 .user-card .card .close {
+    color: #A0A0A0;
     background: transparent;
     font-size: .22rem;
     position: absolute;
     top: .1rem;;
     right: .1rem;
+    transition: .2s;
+}
+
+.user-card .card .close:hover {
+    color: #000000;
 }
 
 .user-card .card .avatar {
