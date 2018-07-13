@@ -40,15 +40,16 @@ class App extends Component {
                             <Route path="/signup" component={SignUp} />
                             <Route
                                 path="/"
-                                render={(props) => {
-                                    const { userStore } = stores
-                                    userStore.getUserInfo().then(() => {
-                                        if (!userStore.userInfo.signed) {
-                                            props.history.push('/signin')
-                                        }
-                                    })
-                                    return <MainPage />
-                                }}
+                                component={MainPage}
+                                // render={(props) => {
+                                //     const { userStore } = stores
+                                //     userStore.getUserInfo().then(() => {
+                                //         if (!userStore.userInfo.signed) {
+                                //             props.history.push('/signin')
+                                //         }
+                                //     })
+                                //     return <MainPage />
+                                // }}
                             />
                         </Switch>
                     </div>

@@ -5,6 +5,14 @@ class UserStore {
 
     constructor() {
         this.url = '/api'
+        this.user = {
+            ...this.user,
+            name: 'CC',
+            avatar: 'http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg',
+            description: '简单介绍一下自己',
+            phone: '请添加手机号码',
+            email: '请添加邮箱地址',
+        }
     }
 
     submitUserInfo(path, info) {

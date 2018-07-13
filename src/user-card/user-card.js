@@ -25,13 +25,12 @@ class UserCard extends Component {
     }
 
     render() {
-        const user = this.props.stores.userStore.userInfo
+        const { user } = this.props.stores.userStore
         return (
             <div className="user-card">
                 <div className="card">
-                    <input type="file" name="avatar" accept="image/*" onChange={this.handleChange} />
                     <div className="avatar">
-                        <img src="http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg" alt="" />
+                        <img src={user.avatar} alt="" />
                     </div>
                     <h2 className="name">{user.name}</h2>
                     <p className="desription">{user.description}</p>
