@@ -6,17 +6,28 @@ import './nav-bar.css'
 @inject('stores')
 @observer
 class NavBar extends Component {
+    constructor() {
+        super()
+        this.viewUserInfo = this.viewUserInfo.bind(this)
+    }
+
+    viewUserInfo() {
+        const { uiState } = this.props.stores
+        uiState.changeCurrentState(uiState.states.VIEWUSERINFO)
+    }
+
     render() {
-        const store = this.props.stores.albumStore
+        const { userStore, albumStore } = this.props.stores
+        const { user } = userStore
         return (
             <div className="nav-bar">
                 <div className="user-info">
-                    <div className="avatar">
-                        <img src="http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg" alt="" />
-                    </div>
+                    <button className="avatar" onClick={this.viewUserInfo}>
+                        <img src={user.avatar} alt="" />
+                    </button>
                     <div className="info">
-                        <h4>火车王里诺艾</h4>
-                        <p>我是，火车王！</p>
+                        <h4>{user.name}</h4>
+                        <p>{user.description}</p>
                     </div>
                 </div>
                 <div className="add-gallery">
@@ -29,7 +40,7 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            store.albums.map(album => <GalleryItem key={album.id} galleryInfo={album} />)
+                            albumStore.albums.map(album => <GalleryItem key={album.id} galleryInfo={album} />)
                         }
                     </ul>
                 </div>

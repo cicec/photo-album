@@ -10,6 +10,10 @@
     display: flex;
 }
 
+.user-info .avatar {
+    background: transparent;
+}
+
 .user-info .avatar>img {
     width: .8rem;
     border-radius: 50%;
