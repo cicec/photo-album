@@ -9,6 +9,7 @@ class UserCard extends Component {
         super()
         this.state = { avatar: '' }
         this.handleChange = this.handleChange.bind(this)
+        this.closeCard = this.closeCard.bind(this)
     }
 
     handleChange(event) {
@@ -24,12 +25,17 @@ class UserCard extends Component {
         }
     }
 
+    closeCard() {
+        const { uiState } = this.props.stores
+        uiState.changeCurrentState(uiState.states.DEFAULT)
+    }
+
     render() {
         const { user } = this.props.stores.userStore
         return (
             <div className="user-card">
                 <div className="card">
-                    <button className="close">
+                    <button className="close" onClick={this.closeCard}>
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-close" />
                         </svg>
