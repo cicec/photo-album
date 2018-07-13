@@ -29,6 +29,11 @@ class UserCard extends Component {
         return (
             <div className="user-card">
                 <div className="card">
+                    <button className="close">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-close" />
+                        </svg>
+                    </button>
                     <div className="avatar">
                         <img src={user.avatar} alt="" />
                     </div>

@@ -12,11 +12,61 @@
 .user-card .card {
     background: #FFFFFF;
     margin: auto;
-    width: 5rem;
-    height: 80%;
+    width: 3.2rem;
+    min-height: 60%;
     border-radius: .2rem;
+    padding: .4rem;
+    position: relative;
+}
+
+.user-card .card .close {
+    background: transparent;
+    font-size: .22rem;
+    position: absolute;
+    top: .1rem;;
+    right: .1rem;
+}
+
+.user-card .card .avatar {
+    padding: .2rem .6rem;
+    text-align: center;
 }
 
 .user-card .card .avatar>img {
-    width: 2rem;
+    width: 1rem;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.user-card .card .name {
+    color: #666666;
+    font-size: .2rem;
+    text-align: center;
+    margin: .4rem 0 .04rem;
+}
+
+.user-card .card .desription {
+    color: #A0A0A0;
+    font-size: .15rem;
+    text-align: center;
+    margin-bottom: .4rem;
+}
+
+.user-card .card .phone {
+    color: #666666;
+    font-size: .15rem;
+    text-align: center;
+}
+
+.user-card .card .email {
+    color: #666666;
+    font-size: .15rem;
+    text-align: center;
+    margin: .1rem;
+}
+
+
+.user-card .card .phone>svg,
+.user-card .card .email>svg {
+    margin-right: .04rem;
 }
