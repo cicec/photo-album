@@ -12,6 +12,11 @@ class NavBar extends Component {
         this.addAlbum = this.addAlbum.bind(this)
     }
 
+    componentWillMount() {
+        const { stores: { albumStore } } = this.props
+        albumStore.getAlbumList()
+    }
+
     viewUserInfo() {
         const { stores: { uiState } } = this.props
         uiState.changeCurrentState(uiState.states.USERINFO)
