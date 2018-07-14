@@ -4,6 +4,12 @@
   "private": true,
   "homepage": "https://clancysong.github.io/photo-album/dist",
   "dependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.9.1",
     "mobx": "^4.3.0",
     "mobx-react": "^5.1.2",
     "react": "^16.3.2",
