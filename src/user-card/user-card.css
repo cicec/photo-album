@@ -74,7 +74,7 @@
     margin-bottom: .04rem;
 }
 
-.user-card .card .desription {
+.user-card .card .description {
     color: #A0A0A0;
     font-size: .15rem;
     text-align: center;
@@ -93,16 +93,9 @@
 .user-card .card .email-label>input {
     font-size: .15rem;
     color: #666666;
-    width: 65%;
+    width: 72%;
     text-align: left;
     margin: .1rem;
-}
-
-.user-card .card .phone-label>input>svg,
-.user-card .card .email-label>input>svg {
-    position: absolute;
-    top: .13rem;
-    left: 20%;
 }
 
 .user-card .card .save {
