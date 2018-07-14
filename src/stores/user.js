@@ -43,7 +43,6 @@ class UserStore {
             if (result.status > 0) {
                 this.user = result.user
             }
-            console.log(result.message)
             return result
         })
     }

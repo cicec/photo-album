@@ -20,9 +20,9 @@ class UserCard extends Component {
             const reader = new FileReader()
             reader.onload = (event1) => {
                 this.setState({ isChanged: true, userInfo: { ...userInfo, [target.name]: event1.target.result } })
+                this.avatarImage.src = event1.target.result
             }
             reader.readAsDataURL(target.files[0])
-            console.log(target.files[0])
         } else {
             this.setState({ isChanged: true, userInfo: { ...userInfo, [target.name]: target.value } })
         }
@@ -39,6 +39,9 @@ class UserCard extends Component {
         const { userInfo } = this.state
         userStore.modifyUserInfo(userInfo).then((result) => {
             console.log(result)
+            if (result.status > 0) {
+                this.setState({ isChanged: false })
+            }
         })
     }
 
@@ -60,7 +63,7 @@ class UserCard extends Component {
                     </button>
                     <label htmlFor="avatar-input" className="avatar-label">
                         <div className="avatar">
-                            <img src={avatar} alt="" />
+                            <img src={avatar} alt="" ref={(e) => { this.avatarImage = e }} />
                         </div>
                     </label>
                     <input type="file" accept="image/*" name="avatar" id="avatar-input" className="avatar-input" onChange={this.handleChange} />
