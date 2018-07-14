@@ -7,7 +7,8 @@ class UiState {
     constructor() {
         this.states = {
             DEFAULT: 'default',
-            VIEWUSERINFO: 'view-user-info'
+            USERINFO: 'user-info',
+            ADDALBUM: 'add-album'
         }
     }
 

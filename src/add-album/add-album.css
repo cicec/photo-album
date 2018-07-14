@@ -1,0 +1,94 @@
+.add-album {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 1;
+    display: flex;
+}
+
+.add-album input[type=text] {
+    margin: auto;
+    border: none;
+    text-align: center;
+    caret-color: #A0A0A0;
+    display: block;
+}
+
+.add-album input[type=text]:focus {
+    outline: none;
+}
+
+.add-album input::placeholder {
+    color: #bcbcbc;
+}
+
+.add-album .card {
+    background: #FFFFFF;
+    margin: auto;
+    min-width: 6.4rem;
+    min-height: 60%;
+    border-radius: .2rem;
+    padding: .4rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .6);
+    text-align: center;
+    position: relative;
+}
+
+.add-album .card .close {
+    color: #A0A0A0;
+    background: transparent;
+    font-size: .22rem;
+    position: absolute;
+    top: .1rem;;
+    right: .1rem;
+    transition: .2s;
+}
+
+.add-album .card>h2 {
+    color: #666666;
+}
+
+.add-album .card .close:hover {
+    color: #000000;
+}
+
+.add-album .card .cover-label {
+    font-size: .15rem;
+    color: #A0A0A0;
+}
+
+.add-album .card .cover {
+    padding: .1rem .6rem;
+    text-align: center;
+}
+
+.add-album .card .cover:hover {
+    cursor: pointer;
+}
+
+.add-album .card .cover>img {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.add-album .card .cover-input {
+    display: none;
+}
+
+.add-album .card .title {
+    margin-bottom: .2rem;
+}
+
+.add-album .card .submit {
+    width: 60%;
+    padding: .1rem;
+    border-radius: .2rem;
+    background: #50C881;
+    color: #FFFFFF;
+    margin-top: .2rem;
+}
