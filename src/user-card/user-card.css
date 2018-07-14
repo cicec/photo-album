@@ -31,7 +31,7 @@
     width: 3.4rem;
     min-height: 60%;
     border-radius: .2rem;
-    padding: .4rem;
+    padding: .4rem .4rem .8rem;
     box-shadow: 0 0 60px rgba(0, 0, 0, .6);
     text-align: center;
     position: relative;
@@ -62,11 +62,16 @@
     margin: auto;
 }
 
+.user-card .card .avatar-input {
+    display: none;
+}
+
 .user-card .card .name {
     color: #666666;
-    font-size: .2rem;
+    font-size: .18rem;
+    font-weight: bold;
     text-align: center;
-    margin: .4rem 0 .04rem;
+    margin-bottom: .04rem;
 }
 
 .user-card .card .desription {
@@ -76,14 +81,16 @@
     margin-bottom: .1rem;
 }
 
-.user-card .card>label {
+.user-card .card .phone-label,
+.user-card .card .email-label {
     width: 100%;
     position: relative;
     margin: 0;
     text-align: right;
 }
 
-.user-card .card>label>input {
+.user-card .card .phone-label>input,
+.user-card .card .email-label>input {
     font-size: .15rem;
     color: #666666;
     width: 65%;
@@ -91,7 +98,8 @@
     margin: .1rem;
 }
 
-.user-card .card>label>svg {
+.user-card .card .phone-label>input>svg,
+.user-card .card .email-label>input>svg {
     position: absolute;
     top: .13rem;
     left: 20%;
@@ -104,7 +112,7 @@
     background: #50C881;
     color: #FFFFFF;
     position: absolute; 
-    bottom: .16rem;
+    bottom: .3rem;
     left: 50%;
     transform: translateX(-50%);
 }
