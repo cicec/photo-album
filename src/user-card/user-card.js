@@ -13,16 +13,6 @@ class UserCard extends Component {
         this.closeCard = this.closeCard.bind(this)
     }
 
-    componentWillMount() {
-        // const { stores: { userStore: { user } } } = this.props
-        // this.setState({
-        //     name: user.name,
-        //     description: user.description,
-        //     phone: user.phone,
-        //     email: user.email
-        // })
-    }
-
     handleChange(event) {
         const { target } = event
         const { userInfo } = this.state
@@ -32,6 +22,7 @@ class UserCard extends Component {
                 this.setState({ isChanged: true, userInfo: { ...userInfo, [target.name]: event1.target.result } })
             }
             reader.readAsDataURL(target.files[0])
+            console.log(target.files[0])
         } else {
             this.setState({ isChanged: true, userInfo: { ...userInfo, [target.name]: target.value } })
         }
@@ -45,7 +36,8 @@ class UserCard extends Component {
 
     handleSubmit() {
         const { stores: { userStore } } = this.props
-        userStore.modifyUserInfo(this.state.userInfo).then((result) => {
+        const { userInfo } = this.state
+        userStore.modifyUserInfo(userInfo).then((result) => {
             console.log(result)
         })
     }

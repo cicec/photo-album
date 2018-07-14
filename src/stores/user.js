@@ -33,7 +33,6 @@ class UserStore {
                 this.user.signed = false
             } else {
                 this.user = { ...result.user, signed: true }
-                this.user.avatar = 'http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg'
             }
             return result
         })
@@ -43,7 +42,6 @@ class UserStore {
         return this.submitUserInfo('/modifyuserinfo', info).then((result) => {
             if (result.status > 0) {
                 this.user = result.user
-                this.user.avatar = 'http://p4nfph69y.bkt.clouddn.com/2018-06-01-avatar.jpg'
             }
             console.log(result.message)
             return result
