@@ -48,9 +48,13 @@ module.exports = {
         "no-cond-assign": "off",
         //  强制在类的方法内使用this
         "class-methods-use-this": "off",
+        //  强制在类的属性之间空行
+        "lines-between-class-members": "off",
         //  推荐无状态组件使用函数
         "react/prefer-stateless-function": "off",
         //  强制对prop使用类型检查
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        //  强制JSX每一行只有一个表达式
+        "react/jsx-one-expression-per-line": "off",
     }
 };

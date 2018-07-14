@@ -15,26 +15,30 @@ class SignIn extends Component {
 
     handleChange(event) {
         const { target } = event
-        this.setState(...this.state, { [target.name]: target.value })
+        this.setState({ [target.name]: target.value })
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        if (!this.state.name || !this.state.password) return
-        const store = this.props.stores.userStore
-        store.signIn(this.state).then((result) => {
+        const { name, password } = this.state
+        if (!name || !password) return
+        const { stores: { userStore } } = this.props
+        userStore.signIn(this.state).then((result) => {
             console.log(result)
             if (result.status > 0) {
-                this.props.history.push('/')
+                const { history } = this.props
+                history.push('/')
             }
         })
     }
 
     jumpToSignUpPage() {
-        this.props.history.push('/signup')
+        const { history } = this.props
+        history.push('/signup')
     }
 
     render() {
+        const { name, password } = this.state
         return (
             <div className="sign-in">
                 <form className="clearfix" onSubmit={this.handleSubmit}>
@@ -42,16 +46,16 @@ class SignIn extends Component {
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-user" />
                         </svg>
-                        <input type="text" name="name" id="name" placeholder="请输入用户名" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text" name="name" id="name" placeholder="请输入用户名" value={name} onChange={this.handleChange} />
                     </label>
                     <label htmlFor="password">
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-lock" />
                         </svg>
-                        <input type="password" name="password" id="password" placeholder="请输入密码" value={this.state.password} onChange={this.handleChange} />
+                        <input type="password" name="password" id="password" placeholder="请输入密码" value={password} onChange={this.handleChange} />
                     </label>
-                    <button className="signinBtn">登录</button>
-                    <button className="signupBtn" onClick={this.jumpToSignUpPage}>没有账号？现在注册！</button>
+                    <button type="submit" className="signinBtn">登录</button>
+                    <button type="button" className="signupBtn" onClick={this.jumpToSignUpPage}>没有账号？现在注册！</button>
                 </form>
             </div>
         )

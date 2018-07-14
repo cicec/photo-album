@@ -12,17 +12,17 @@ class NavBar extends Component {
     }
 
     viewUserInfo() {
-        const { uiState } = this.props.stores
+        const { stores: { uiState } } = this.props
         uiState.changeCurrentState(uiState.states.VIEWUSERINFO)
     }
 
     render() {
-        const { userStore, albumStore } = this.props.stores
+        const { stores: { userStore, albumStore } } = this.props
         const { user } = userStore
         return (
             <div className="nav-bar">
                 <div className="user-info">
-                    <button className="avatar" onClick={this.viewUserInfo}>
+                    <button type="button" className="avatar" onClick={this.viewUserInfo}>
                         <img src={user.avatar} alt="" />
                     </button>
                     <div className="info">
@@ -31,7 +31,7 @@ class NavBar extends Component {
                     </div>
                 </div>
                 <div className="add-gallery">
-                    <button>
+                    <button type="button">
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-plus" />
                         </svg>
