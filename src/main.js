@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import NavBar from './nav-bar'
-import ImgViewer from './img-viewer'
+import PicsViewer from './pics-viewer'
 import UserCard from './user-card'
 import AddAlbum from './add-album'
 
@@ -13,7 +13,7 @@ class Main extends Component {
         return (
             <main>
                 <NavBar />
-                <ImgViewer />
+                <PicsViewer />
                 {uiState.currentState === uiState.states.USERINFO ? <UserCard /> : ''}
                 {uiState.currentState === uiState.states.ADDALBUM ? <AddAlbum /> : ''}
             </main>

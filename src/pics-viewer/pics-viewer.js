@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
-import './img-viewer.css'
+import './pics-viewer.css'
 
 @inject('stores')
 @observer
-class ImgViewer extends Component {
+class PicsViewer extends Component {
     render() {
         return (
-            <div className="img-viewer">
+            <div className="pics-viewer">
                 <div className="header">
                     <h2>人物</h2>
                     <button type="button">
@@ -37,4 +37,4 @@ class ImgViewer extends Component {
     }
 }
 
-export default ImgViewer
+export default PicsViewer
