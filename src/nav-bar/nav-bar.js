@@ -23,7 +23,7 @@ class NavBar extends Component {
     }
 
     render() {
-        const { stores: { uiState, userStore, albumStore } } = this.props
+        const { stores: { userStore, albumStore, photoStore } } = this.props
         const { user } = userStore
         return (
             <div className="nav-bar">
@@ -46,7 +46,7 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            albumStore.albums.map(album => <AlbumItem key={album.id} albumInfo={album} />)
+                            albumStore.albums.map(album => <AlbumItem key={album.id} albumInfo={album} picsNumber={photoStore.photos.length} />)
                         }
                     </ul>
                 </div>

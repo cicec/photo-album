@@ -33,6 +33,7 @@ class PicsViewer extends Component {
     }
 
     render() {
+        const { stores: { photoStore: { photos } } } = this.props
         return (
             <div className="pics-viewer">
                 <div className="header">
@@ -46,18 +47,13 @@ class PicsViewer extends Component {
                 </div>
                 <div className="imgs">
                     <ul>
-                        <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
-                        </li>
-                        <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
-                        </li>
-                        <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
-                        </li>
-                        <li>
-                            <img src="http://p4nfph69y.bkt.clouddn.com/2.jpg" alt="" />
-                        </li>
+                        {
+                            photos.map(photo => (
+                                <li key={photo.id}>
+                                    <img src={photo.photo} alt="" />
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </div>

@@ -10,12 +10,13 @@ class AlbumItem extends Component {
     }
 
     handleClick() {
-        const { stores: { uiState }, albumInfo: { id } } = this.props
+        const { stores: { uiState, photoStore }, albumInfo: { id } } = this.props
         uiState.changeViewedAlbumId(id)
+        photoStore.getPhotoList(uiState.viewedAlbumId)
     }
 
     render() {
-        const { stores: { uiState }, albumInfo: { id, cover, title, description, picsNumber } } = this.props
+        const { stores: { uiState }, albumInfo: { id, cover, title, description }, picsNumber } = this.props
         const isViewed = (id === uiState.viewedAlbumId)
         return (
             <li className={isViewed ? 'active' : ''} onClick={this.handleClick}>
