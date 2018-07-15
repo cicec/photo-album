@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import GalleryItem from './album-item'
+import AlbumItem from './album-item'
 import './nav-bar.css'
 
 @inject('stores')
@@ -10,14 +10,6 @@ class NavBar extends Component {
         super()
         this.viewUserInfo = this.viewUserInfo.bind(this)
         this.addAlbum = this.addAlbum.bind(this)
-    }
-
-    componentWillMount() {
-        const { stores: { uiState, albumStore } } = this.props
-        albumStore.getAlbumList().then((result) => {
-            const { albumList } = result
-            if (albumList) uiState.changeViewedAlbum(albumList[0])
-        })
     }
 
     viewUserInfo() {
@@ -54,12 +46,7 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            albumStore.albums.map((album) => {
-                                if (uiState.viewedAlbum && album.id === uiState.viewedAlbum.id) {
-                                    return <GalleryItem key={album.id} albumInfo={album} isViewed />
-                                }
-                                return <GalleryItem key={album.id} albumInfo={album} />
-                            })
+                            albumStore.albums.map(album => <AlbumItem key={album.id} albumInfo={album} />)
                         }
                     </ul>
                 </div>

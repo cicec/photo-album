@@ -8,6 +8,16 @@ import AddAlbum from './add-album'
 @inject('stores')
 @observer
 class Main extends Component {
+    componentWillMount() {
+        const { stores: { uiState, albumStore } } = this.props
+        albumStore.getAlbumList().then((result) => {
+            if (result.albumList || result.albumList.length > 0) {
+                const viewedAlbum = result.albumList[0]
+                uiState.changeViewedAlbumId(viewedAlbum.id)
+            }
+        })
+    }
+
     render() {
         const { stores: { uiState } } = this.props
         return (

@@ -25,6 +25,10 @@ class AlbumStore {
             headers: { 'Content-Type': 'application/json; charset=utf-8' }
         }).then(response => response.json())
     }
+
+    getAlbumForId(id) {
+        return this.albums.filter(album => album.id === id)[0]
+    }
 }
 
 export default new AlbumStore()

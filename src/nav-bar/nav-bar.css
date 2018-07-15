@@ -84,6 +84,7 @@
 }
 
 .gallery-list>ul>li .info>h4 {
+    color: #555555;
     font-size: .15rem;
     margin-bottom: .02rem;
 }
