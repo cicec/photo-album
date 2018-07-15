@@ -13,24 +13,28 @@ class PicsViewer extends Component {
     uploadPics(event) {
         const { target } = event
         const { stores: { uiState, photoStore } } = this.props
-        for (let i = 0; i < target.files.length; i++) {
-            const reader = new FileReader()
-            reader.onload = (file => (event1) => {
-                const photo = {
-                    albumId: uiState.viewedAlbumId,
-                    photo: event1.target.result,
-                    name: file.name,
-                    modified: file.lastModified,
-                    size: file.size,
-                    type: file.type
-                }
-                photoStore.addPhoto(photo).then((result) => {
-                    if (result.status > 0) {
-                        photoStore.getPhotoList(uiState.viewedAlbumId)
+        if (uiState.viewedAlbumId > 0) {
+            for (let i = 0; i < target.files.length; i++) {
+                const reader = new FileReader()
+                reader.onload = (file => (event1) => {
+                    const photo = {
+                        albumId: uiState.viewedAlbumId,
+                        photo: event1.target.result,
+                        name: file.name,
+                        modified: file.lastModified,
+                        size: file.size,
+                        type: file.type
                     }
-                })
-            })(target.files[i])
-            reader.readAsDataURL(target.files[i])
+                    photoStore.addPhoto(photo).then((result) => {
+                        if (result.status > 0) {
+                            photoStore.getPhotoList(uiState.viewedAlbumId)
+                        }
+                    })
+                })(target.files[i])
+                reader.readAsDataURL(target.files[i])
+            }
+        } else {
+            console.log('没有相册被选中')
         }
     }
 

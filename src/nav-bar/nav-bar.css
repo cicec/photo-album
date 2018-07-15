@@ -12,12 +12,16 @@
 
 .user-info .avatar {
     background: transparent;
+    width: .8rem;
+    height: .8rem;
+    padding: 0;
 }
 
 .user-info .avatar>img {
-    width: .8rem;
-    height: .8rem;
-    border-radius: 50%;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .user-info .info {
@@ -60,19 +64,28 @@
 }
 
 .gallery-list>ul>li {
-    display: flex;
     padding: .32rem 10%;
     width: calc(100% + .1rem);
     border-top-right-radius: .06rem;
     border-bottom-right-radius: .06rem;
-    cursor: pointer;
     transition: all .1s;
     position: relative;
 }
 
-.gallery-list>ul>li .logo>img {
+.gallery-list>ul>li>a {
+    display: flex;
+    cursor: pointer;
+}
+
+.gallery-list>ul>li .logo {
     width: .72rem;
     height: .72rem;
+}
+
+.gallery-list>ul>li .logo>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 100%;
 }
 

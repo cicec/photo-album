@@ -59,7 +59,9 @@ class AddAlbum extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="cover-input" className="cover-label">
                             <div className="cover">
-                                <img src="http://localhost:8080/photo-album/api/image/album-cover-default.jpg" alt="" ref={(e) => { this.coverImage = e }} />
+                                <div className="img-wrapper">
+                                    <img src="http://localhost:8080/photo-album/api/image/album-cover-default.jpg" alt="" ref={(e) => { this.coverImage = e }} />
+                                </div>
                             </div>
                             （挑一张喜欢的图片作为相册的封面吧）
                         </label>

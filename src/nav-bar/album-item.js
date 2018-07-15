@@ -19,18 +19,20 @@ class AlbumItem extends Component {
         const { stores: { uiState }, albumInfo: { id, cover, title, description }, picsNumber } = this.props
         const isViewed = (id === uiState.viewedAlbumId)
         return (
-            <li className={isViewed ? 'active' : ''} onClick={this.handleClick}>
-                <div className="logo">
-                    <img src={cover} alt="" />
-                </div>
-                <div className="info">
-                    <h4>{title}</h4>
-                    <p>{description}</p>
-                </div>
-                <div className="number">
-                    <h4>{picsNumber}</h4>
-                    <p>pics</p>
-                </div>
+            <li className={isViewed ? 'active' : ''}>
+                <a href={false} onClick={this.handleClick}>
+                    <div className="logo">
+                        <img src={cover} alt="" />
+                    </div>
+                    <div className="info">
+                        <h4>{title}</h4>
+                        <p>{description}</p>
+                    </div>
+                    <div className="number">
+                        <h4>{picsNumber}</h4>
+                        <p>pics</p>
+                    </div>
+                </a>
             </li>
         )
     }
