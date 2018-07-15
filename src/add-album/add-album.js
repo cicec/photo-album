@@ -38,9 +38,9 @@ class AddAlbum extends Component {
         if (!title || !description) return
         const { stores: { albumStore } } = this.props
         albumStore.addAlbum(this.state).then((result) => {
-            console.log(result)
             if (result.status > 0) {
                 this.setState({ title: '', description: '' })
+                albumStore.getAlbumList()
             }
         })
     }

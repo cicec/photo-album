@@ -2,10 +2,7 @@ import { observable } from 'mobx'
 
 class AlbumStore {
     @observable albums = []
-
-    constructor() {
-        this.url = 'http://localhost:8080/photo-album/api'
-    }
+    url = 'http://localhost:8080/photo-album/api'
 
     getAlbumList() {
         return fetch(`${this.url}/getalbumlist`, {
@@ -13,7 +10,10 @@ class AlbumStore {
             credentials: 'include',
         }).then(response => response.json())
             .then((result) => {
-                console.log(result)
+                if (result.status > 0) {
+                    this.albums = result.albumList
+                }
+                return result
             })
     }
 

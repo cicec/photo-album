@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 
 class GalleryItem extends Component {
     render() {
-        const { galleryInfo } = this.props
+        const { albumInfo: { cover, title, description, picsNumber } } = this.props
         return (
             <li>
                 <div className="logo">
-                    <img src={galleryInfo.cover} alt="" />
+                    <img src={cover} alt="" />
                 </div>
                 <div className="info">
-                    <h4>{galleryInfo.name}</h4>
-                    <p>{galleryInfo.description}</p>
+                    <h4>{title}</h4>
+                    <p>{description}</p>
                 </div>
                 <div className="number">
-                    <h4>{galleryInfo.number}</h4>
+                    <h4>{picsNumber}</h4>
                     <p>pics</p>
                 </div>
             </li>
