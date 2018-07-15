@@ -12,12 +12,12 @@ class PicsViewer extends Component {
 
     uploadPics(event) {
         const { target } = event
-        const { stores: { photoStore } } = this.props
+        const { stores: { uiState, photoStore } } = this.props
         for (let i = 0; i < target.files.length; i++) {
             const reader = new FileReader()
             reader.onload = (file => (event1) => {
                 const photo = {
-                    albumId: 0,
+                    albumId: uiState.viewedAlbumId,
                     photo: event1.target.result,
                     name: file.name,
                     modified: file.lastModified,

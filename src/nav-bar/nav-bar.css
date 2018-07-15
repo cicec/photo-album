@@ -65,6 +65,7 @@
     width: calc(100% + .1rem);
     border-top-right-radius: .06rem;
     border-bottom-right-radius: .06rem;
+    cursor: pointer;
     transition: all .1s;
     position: relative;
 }
@@ -113,20 +114,19 @@
     text-align: center;
 }
 
-.gallery-list>ul>li:hover {
+.gallery-list>ul>li.active {
     background: #50C881;
     box-shadow:  0 20px 40px -10px #B5E4C4;
-    cursor: pointer;
 }
 
-.gallery-list>ul>li:hover .info>h4 {
+.gallery-list>ul>li.active .info>h4 {
     color: #FFFFFF;
 }
 
-.gallery-list>ul>li:hover .info>p {
+.gallery-list>ul>li.active .info>p {
     color: #EEEEEE;
 }
 
-.gallery-list>ul>li:hover .number {
+.gallery-list>ul>li.active .number {
     opacity: 1;
 }

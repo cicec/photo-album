@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-class GalleryItem extends Component {
+class AlbumItem extends Component {
     render() {
-        const { albumInfo: { cover, title, description, picsNumber } } = this.props
+        const { isViewed, albumInfo: { cover, title, description, picsNumber } } = this.props
         return (
-            <li>
+            <li className={isViewed ? 'active' : ''}>
                 <div className="logo">
                     <img src={cover} alt="" />
                 </div>
@@ -21,4 +21,4 @@ class GalleryItem extends Component {
     }
 }
 
-export default GalleryItem
+export default AlbumItem
