@@ -25,7 +25,9 @@ class PicsViewer extends Component {
                     type: file.type
                 }
                 photoStore.addPhoto(photo).then((result) => {
-                    console.log(result)
+                    if (result.status > 0) {
+                        photoStore.getPhotoList(uiState.viewedAlbumId)
+                    }
                 })
             })(target.files[i])
             reader.readAsDataURL(target.files[i])
@@ -48,9 +50,11 @@ class PicsViewer extends Component {
                 <div className="imgs">
                     <ul>
                         {
-                            photos.map(photo => (
-                                <li key={photo.id}>
-                                    <img src={photo.photo} alt="" />
+                            photos.map(item => (
+                                <li key={item.id}>
+                                    <div className="img-wrapper">
+                                        <img src={item.photo} alt="" />
+                                    </div>
                                 </li>
                             ))
                         }

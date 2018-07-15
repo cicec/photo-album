@@ -50,4 +50,5 @@ ul {
 
 .App>main {
   display: flex;
+  height: 100vh;
 }
