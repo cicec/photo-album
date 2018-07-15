@@ -39,11 +39,11 @@ class PicsViewer extends Component {
     }
 
     render() {
-        const { stores: { photoStore: { photos } } } = this.props
+        const { stores: { photoStore } } = this.props
         return (
             <div className="pics-viewer">
                 <div className="header">
-                    <h2>人物</h2>
+                    <h2>我的图片</h2>
                     <label htmlFor="upload-pics">
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-cloud-upload" />
@@ -54,7 +54,7 @@ class PicsViewer extends Component {
                 <div className="imgs">
                     <ul>
                         {
-                            photos.map(item => (
+                            photoStore.photos.map(item => (
                                 <li key={item.id}>
                                     <div className="img-wrapper">
                                         <img src={item.photo} alt="" />

@@ -2,8 +2,11 @@
     width: 100%;
     background: #FCFCFC;
     padding: .4rem .6rem 0;
-    overflow-x: hidden;
     overflow-y: scroll;
+}
+
+.pics-viewer::-webkit-scrollbar {
+    display: none;
 }
 
 .pics-viewer .header {
@@ -36,8 +39,8 @@
 }
 
 .pics-viewer .imgs>ul>li {
-    width: 2.6rem;
-    height: 2.6rem;
+    width: 2.7rem;
+    height: 2.7rem;
 }
 
 .pics-viewer .imgs>ul>li .img-wrapper {
