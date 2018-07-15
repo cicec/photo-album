@@ -14,10 +14,16 @@
     font-size: .15rem;
 }
 
-.pics-viewer .header>button {
+.pics-viewer .header>label {
+    margin: auto 0;
     color: rgba(0, 0, 0, .5);
     font-size: .34rem;
     background: transparent;
+    cursor: pointer;
+}
+
+.pics-viewer .header input[type=file] {
+    display: none;
 }
 
 .pics-viewer .imgs>ul {
