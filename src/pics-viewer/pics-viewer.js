@@ -24,7 +24,6 @@ class PicsViewer extends Component {
                     size: file.size,
                     type: file.type
                 }
-                console.log(photo)
                 photoStore.addPhoto(photo).then((result) => {
                     console.log(result)
                 })

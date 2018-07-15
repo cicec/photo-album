@@ -2,7 +2,7 @@ import { observable } from 'mobx'
 
 class UiState {
     @observable currentState = this.states.DEFAULT
-    @observable viewedAlbumId = 0
+    @observable viewedAlbum = null
 
     constructor() {
         this.states = {
@@ -16,8 +16,8 @@ class UiState {
         this.currentState = state
     }
 
-    changeViewedAlbumId(albumId) {
-        this.viewedAlbumId = albumId
+    changeViewedAlbum(album) {
+        this.viewedAlbum = album
     }
 }
 

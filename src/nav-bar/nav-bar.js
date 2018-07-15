@@ -16,7 +16,7 @@ class NavBar extends Component {
         const { stores: { uiState, albumStore } } = this.props
         albumStore.getAlbumList().then((result) => {
             const { albumList } = result
-            if (albumList) uiState.changeViewedAlbumId(albumList[0].id)
+            if (albumList) uiState.changeViewedAlbum(albumList[0])
         })
     }
 
@@ -55,7 +55,7 @@ class NavBar extends Component {
                     <ul>
                         {
                             albumStore.albums.map((album) => {
-                                if (album.id === uiState.viewedAlbumId) {
+                                if (uiState.viewedAlbum && album.id === uiState.viewedAlbum.id) {
                                     return <GalleryItem key={album.id} albumInfo={album} isViewed />
                                 }
                                 return <GalleryItem key={album.id} albumInfo={album} />
