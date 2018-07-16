@@ -20,7 +20,7 @@ class AlbumItem extends Component {
         const isViewed = (id === uiState.viewedAlbumId)
         return (
             <li className={isViewed ? 'active' : ''}>
-                <a href={false} onClick={this.handleClick}>
+                <button type="button" onClick={this.handleClick}>
                     <div className="logo">
                         <img src={cover} alt="" />
                     </div>
@@ -32,7 +32,12 @@ class AlbumItem extends Component {
                         <h4>{picsNumber}</h4>
                         <p>pics</p>
                     </div>
-                </a>
+                    <button type="button" className="remove-btn" onClick={this.removeAlbum}>
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-delete" />
+                        </svg>
+                    </button>
+                </button>
             </li>
         )
     }

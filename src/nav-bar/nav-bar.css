@@ -64,7 +64,6 @@
 }
 
 .gallery-list>ul>li {
-    padding: .32rem 10%;
     width: calc(100% + .1rem);
     border-top-right-radius: .06rem;
     border-bottom-right-radius: .06rem;
@@ -72,9 +71,13 @@
     position: relative;
 }
 
-.gallery-list>ul>li>a {
+.gallery-list>ul>li>button {
+    padding: .32rem 10%;
     display: flex;
-    cursor: pointer;
+    align-items: center;
+    background: transparent;
+    margin: 0;
+    width: 100%;
 }
 
 .gallery-list>ul>li .logo {
@@ -110,7 +113,7 @@
 .gallery-list>ul>li .number {
     position: absolute;
     top: 50%;
-    right: 12%;
+    right: 14%;
     transform: translateY(-50%);
     opacity: 0;
 }
@@ -142,5 +145,20 @@
 }
 
 .gallery-list>ul>li.active .number {
+    opacity: 1;
+}
+
+.gallery-list>ul>li .remove-btn {
+    background: transparent;
+    font-size: .17rem;
+    position: absolute;
+    right: .06rem;
+    top: .1rem;
+    color: #EEEEEE;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.gallery-list>ul>li.active>button:hover .remove-btn {
     opacity: 1;
 }
