@@ -38,6 +38,15 @@ class PicsViewer extends Component {
         }
     }
 
+    removePhoto(photoId) {
+        const { stores: { uiState, photoStore } } = this.props
+        photoStore.removePhoto({ id: photoId }).then((result) => {
+            if (result.status > 0) {
+                photoStore.getPhotoList(uiState.viewedAlbumId)
+            }
+        })
+    }
+
     render() {
         const { stores: { photoStore } } = this.props
         return (
@@ -56,8 +65,21 @@ class PicsViewer extends Component {
                         {
                             photoStore.photos.map(item => (
                                 <li key={item.id}>
-                                    <div className="img-wrapper">
-                                        <img src={item.photo} alt="" />
+                                    <div className="inner">
+                                        <div className="img-wrapper">
+                                            <img src={item.photo} alt="" />
+                                            <button
+                                                type="button"
+                                                className="remove-btn"
+                                                onClick={() => {
+                                                    this.removePhoto(item.id)
+                                                }}
+                                            >
+                                                <svg className="icon" aria-hidden="true">
+                                                    <use xlinkHref="#icon-delete" />
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
                                 </li>
                             ))

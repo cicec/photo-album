@@ -18,13 +18,21 @@ class PhotoStore {
             })
     }
 
-    addPhoto(photo) {
-        return fetch(`${this.url}/addphoto`, {
+    submitPhotoInfo(path, info) {
+        return fetch(`${this.url}${path}`, {
             method: 'POST',
             credentials: 'include',
-            body: JSON.stringify(photo),
+            body: JSON.stringify(info),
             headers: { 'Content-Type': 'application/json; charset=utf-8' }
         }).then(response => response.json())
+    }
+
+    addPhoto(photo) {
+        return this.submitPhotoInfo('/addphoto', photo)
+    }
+
+    removePhoto(photo) {
+        return this.submitPhotoInfo('/removephoto', photo)
     }
 }
 
