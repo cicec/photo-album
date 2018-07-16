@@ -103,11 +103,13 @@
     color: #555555;
     font-size: .15rem;
     margin-bottom: .02rem;
+    text-align: left;
 }
 
 .gallery-list>ul>li .info>p {
     color: #A0A0A0;
     font-size: .14rem;
+    text-align: left;
 }
 
 .gallery-list>ul>li .number {

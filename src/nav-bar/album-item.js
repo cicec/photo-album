@@ -7,12 +7,22 @@ class AlbumItem extends Component {
     constructor() {
         super()
         this.handleClick = this.handleClick.bind(this)
+        this.removeAlbum = this.removeAlbum.bind(this)
     }
 
     handleClick() {
         const { stores: { uiState, photoStore }, albumInfo: { id } } = this.props
         uiState.changeViewedAlbumId(id)
         photoStore.getPhotoList(uiState.viewedAlbumId)
+    }
+
+    removeAlbum() {
+        const { stores: { uiState, albumStore, initStore } } = this.props
+        albumStore.removeAlbum({ id: uiState.viewedAlbumId }).then((result) => {
+            if (result.status > 0) {
+                initStore()
+            }
+        })
     }
 
     render() {

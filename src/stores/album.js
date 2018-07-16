@@ -4,6 +4,15 @@ class AlbumStore {
     @observable albums = []
     url = 'http://localhost:8080/photo-album/api'
 
+    submitAlbumInfo(path, info) {
+        return fetch(`${this.url}${path}`, {
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify(info),
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
+        }).then(response => response.json())
+    }
+
     getAlbumList() {
         return fetch(`${this.url}/getalbumlist`, {
             method: 'GET',
@@ -18,12 +27,11 @@ class AlbumStore {
     }
 
     addAlbum(info) {
-        return fetch(`${this.url}/addalbum`, {
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify(info),
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        }).then(response => response.json())
+        return this.submitAlbumInfo('/addalbum', info)
+    }
+
+    removeAlbum(info) {
+        return this.submitAlbumInfo('/removealbum', info)
     }
 
     getAlbumForId(id) {
