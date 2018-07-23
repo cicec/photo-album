@@ -19,7 +19,6 @@ class App extends Component {
                             <Route path="/signup" component={SignUp} />
                             <Route
                                 path="/"
-                                // component={Main}
                                 render={(props) => {
                                     const { userStore } = stores
                                     userStore.getUserInfo().then((result) => {

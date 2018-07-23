@@ -24,6 +24,13 @@ class UserStore {
         return this.submitUserInfo('/signup', info)
     }
 
+    signOut() {
+        return fetch(`${this.url}/signout`, {
+            method: 'GET',
+            credentials: 'include',
+        }).then(response => response.json())
+    }
+
     getUserInfo() {
         return fetch(`${this.url}/getuserinfo`, {
             method: 'GET',

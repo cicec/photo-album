@@ -8,6 +8,22 @@
     padding: .4rem;
     border-bottom: 1px solid #F4F4F4;
     display: flex;
+    position: relative;
+}
+
+.user-info .logout {
+    color: #A0A0A0;
+    background: transparent;
+    font-size: .22rem;
+    position: absolute;
+    top: .14rem;
+    right: .14rem;
+    transition: .2s;
+    display: none;
+}
+
+.user-info:hover .logout {
+    display: block;
 }
 
 .user-info .avatar {
