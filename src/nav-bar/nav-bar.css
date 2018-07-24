@@ -173,10 +173,9 @@
     right: .06rem;
     top: .1rem;
     color: #EEEEEE;
-    opacity: 0;
-    transition: opacity .2s;
+    display: none;
 }
 
 .gallery-list>ul>li.active>button:hover .remove-btn {
-    opacity: 1;
+    display: block;
 }
