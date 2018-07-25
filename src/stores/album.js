@@ -1,8 +1,9 @@
 import { observable } from 'mobx'
+import config from './config.json'
 
 class AlbumStore {
     @observable albums = []
-    url = 'http://localhost:8080/photo-album/api'
+    url = config.apiUrl
 
     submitAlbumInfo(path, info) {
         return fetch(`${this.url}${path}`, {

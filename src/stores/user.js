@@ -1,11 +1,9 @@
 import { observable } from 'mobx'
+import config from './config.json'
 
 class UserStore {
     @observable user = { signed: true }
-
-    constructor() {
-        this.url = 'http://localhost:8080/photo-album/api'
-    }
+    url = config.apiUrl
 
     submitUserInfo(path, info) {
         return fetch(`${this.url}${path}`, {
