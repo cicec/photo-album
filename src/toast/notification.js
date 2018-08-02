@@ -16,8 +16,11 @@ class Notification extends Component {
         const { notices } = this.state
         notice.key = this.getNoticeKey()
         if (notices.every(item => item.key !== notice.key)) {
-            notices.push(notice)
+            notices[0] = notice
             this.setState({ notices })
+            setTimeout(() => {
+                this.removeNotice(notice.key)
+            }, notice.duration)
         }
     }
 

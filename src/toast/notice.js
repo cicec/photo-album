@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { CSSTransition } from 'react-transition-group'
 
 class Notice extends Component {
     constructor() {
@@ -10,10 +11,11 @@ class Notice extends Component {
             error: 'icon-close-circle-fill',
         }
         this.transitionTime = 300
-        this.state = { shouldClose: false }
+        this.state = { entered: false }
     }
 
     componentDidMount() {
+        this.setState({ entered: true })
         const { duration } = this.props
         if (duration > 0) {
             this.closeTimer = setTimeout(() => {
@@ -34,8 +36,8 @@ class Notice extends Component {
     }
 
     close() {
+        this.setState({ entered: false })
         this.clearCloseTimer()
-        this.setState({ shouldClose: true })
         this.timer = setTimeout(() => {
             const { onClose } = this.props
             if (onClose) onClose()
@@ -44,15 +46,21 @@ class Notice extends Component {
     }
 
     render() {
-        const { shouldClose } = this.state
+        const { entered } = this.state
         const { type, content } = this.props
         return (
-            <div className={`toast-notice ${type} ${shouldClose ? 'leave' : ''}`}>
-                <svg className="icon" aria-hidden="true">
-                    <use xlinkHref={`#${this.icons[type]}`} />
-                </svg>
-                {content}
-            </div>
+            <CSSTransition
+                in={entered}
+                classNames="toast-notice-wrapper notice"
+                timeout={this.transitionTime}
+            >
+                <div className={`toast-notice ${type}`}>
+                    <svg className="icon" aria-hidden="true">
+                        <use xlinkHref={`#${this.icons[type]}`} />
+                    </svg>
+                    {content}
+                </div>
+            </CSSTransition>
         )
     }
 }
