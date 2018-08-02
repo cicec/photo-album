@@ -1,26 +1,7 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import Notice from './notice'
 
 class Notification extends Component {
-    static reWrite(props) {
-        const div = document.createElement('div')
-        document.body.appendChild(div)
-        const notification = ReactDOM.render(<Notification {...props} />, div)
-        return {
-            addNotice(noticeProps) {
-                notification.addNotice(noticeProps)
-            },
-            removeNotice(key) {
-                notification.removeNotice(key)
-            },
-            destroy() {
-                ReactDOM.unmountComponentAtNode(div)
-                document.body.removeChild(div)
-            }
-        }
-    }
-
     constructor() {
         super()
         this.state = { notices: [] }
@@ -28,14 +9,15 @@ class Notification extends Component {
 
     getNoticeKey() {
         const { notices } = this.state
-        return `notification-${new Date().getTime()}-${notices.length}`
+        return `notice-${new Date().getTime()}-${notices.length}`
     }
 
     addNotice(notice) {
         const { notices } = this.state
-        const key = this.getNoticeKey()
-        if (notices.every(item => item.key !== key)) {
+        notice.key = this.getNoticeKey()
+        if (notices.every(item => item.key !== notice.key)) {
             notices.push(notice)
+            this.setState({ notices })
         }
     }
 
@@ -50,13 +32,7 @@ class Notification extends Component {
         return (
             <div className="toast-notification">
                 {
-                    notices.map((notice) => {
-                        const closeCallBack = () => {
-                            this.removeNotice(notice.key)
-                            if (notice.onClose) notice.onClose()
-                        }
-                        return <Notice key={notice.key} onClose={closeCallBack} {...notice} />
-                    })
+                    notices.map(notice => <Notice key={notice.key} {...notice} />)
                 }
             </div>
         )

@@ -7,7 +7,7 @@ class Notice extends Component {
             info: 'icon-info-circle-fill',
             success: 'icon-check-circle-fill',
             warning: 'icon-warning-circle-fill',
-            error: 'icon-close-circle-fill'
+            error: 'icon-close-circle-fill',
         }
         this.transitionTime = 300
         this.state = { shouldClose: false }
@@ -47,7 +47,7 @@ class Notice extends Component {
         const { shouldClose } = this.state
         const { type, content } = this.props
         return (
-            <div className={`toast-notice ${shouldClose ? 'leave' : ''}`}>
+            <div className={`toast-notice ${type} ${shouldClose ? 'leave' : ''}`}>
                 <svg className="icon" aria-hidden="true">
                     <use xlinkHref={`#${this.icons[type]}`} />
                 </svg>
