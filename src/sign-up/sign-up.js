@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import Toast from '../toast'
 import './sign-up.css'
 
 @inject('stores')
@@ -21,11 +22,26 @@ class SignUp extends Component {
     handleSubmit(event) {
         event.preventDefault()
         const { name, password } = this.state
-        if (!name || !password) return
-        const { stores: { userStore } } = this.props
-        userStore.signUp(this.state).then((result) => {
-            console.log(result)
-        })
+        if (!name || !password) {
+            if (!name) {
+                Toast.warning('请输入用户名')
+            } else if (!password) {
+                Toast.warning('请输入密码')
+            }
+        } else if (password.length < 6) {
+            Toast.warning('请至少输入6位密码')
+        } else {
+            const { stores: { userStore } } = this.props
+            userStore.signUp(this.state).then((result) => {
+                if (result.status > 0) {
+                    Toast.success('注册成功，赶快登录吧')
+                    const { history } = this.props
+                    history.push('/signin')
+                } else {
+                    Toast.error('用户名已被占用')
+                }
+            })
+        }
     }
 
     jumpToSignInPage() {

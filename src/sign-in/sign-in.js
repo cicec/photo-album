@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import Toast from '../toast'
 import './sign-in.css'
 
 @inject('stores')
@@ -21,13 +22,22 @@ class SignIn extends Component {
     handleSubmit(event) {
         event.preventDefault()
         const { name, password } = this.state
-        if (!name || !password) return
+        if (!name || !password) {
+            if (!name) {
+                Toast.warning('请输入用户名')
+            } else if (!password) {
+                Toast.warning('请输入密码')
+            }
+            return
+        }
         const { stores: { userStore } } = this.props
         userStore.signIn(this.state).then((result) => {
-            console.log(result)
             if (result.status > 0) {
+                Toast.success('登录成功！')
                 const { history } = this.props
                 history.push('/')
+            } else {
+                Toast.error(result.message)
             }
         })
     }
