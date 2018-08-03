@@ -28,18 +28,21 @@ class SignIn extends Component {
             } else if (!password) {
                 Toast.warning('请输入密码')
             }
-            return
-        }
-        const { stores: { userStore } } = this.props
-        userStore.signIn(this.state).then((result) => {
-            if (result.status > 0) {
+        } else {
+            const removeLoading = Toast.loading('正在登录', 0, () => {
                 Toast.success('登录成功！')
-                const { history } = this.props
-                history.push('/')
-            } else {
-                Toast.error(result.message)
-            }
-        })
+            })
+            const { stores: { userStore } } = this.props
+            userStore.signIn(this.state).then((result) => {
+                if (result.status > 0) {
+                    removeLoading()
+                    const { history } = this.props
+                    history.push('/')
+                } else {
+                    Toast.error(result.message)
+                }
+            })
+        }
     }
 
     jumpToSignUpPage() {
