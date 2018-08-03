@@ -9,10 +9,7 @@ function createNotification() {
     const notification = ReactDOM.render(<Notification />, div)
     return {
         addNotice(notice) {
-            notification.addNotice(notice)
-        },
-        removeNotice(key) {
-            notification.removeNotice(key)
+            return notification.addNotice(notice)
         },
         destroy() {
             ReactDOM.unmountComponentAtNode(div)
@@ -24,7 +21,7 @@ function createNotification() {
 let notification
 const notice = (type, content, duration = 2000, onClose) => {
     if (!notification) notification = createNotification()
-    notification.addNotice({ type, content, duration, onClose })
+    return notification.addNotice({ type, content, duration, onClose })
 }
 
 export default {
@@ -39,5 +36,8 @@ export default {
     },
     error(content, duration, onClose) {
         return notice('error', content, duration, onClose)
+    },
+    loading(content, duration = 0, onClose) {
+        return notice('loading', content, duration, onClose)
     }
 }

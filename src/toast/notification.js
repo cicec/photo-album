@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Notice from './notice'
 
 class Notification extends Component {
     constructor() {
         super()
+        this.transitionTime = 300
         this.state = { notices: [] }
+        this.removeNotice = this.removeNotice.bind(this)
     }
 
     getNoticeKey() {
@@ -18,10 +21,13 @@ class Notification extends Component {
         if (notices.every(item => item.key !== notice.key)) {
             notices[0] = notice
             this.setState({ notices })
-            setTimeout(() => {
-                this.removeNotice(notice.key)
-            }, notice.duration)
+            if (notice.duration > 0) {
+                setTimeout(() => {
+                    this.removeNotice(notice.key)
+                }, notice.duration)
+            }
         }
+        return () => { this.removeNotice(notice.key) }
     }
 
     removeNotice(key) {
@@ -33,11 +39,19 @@ class Notification extends Component {
     render() {
         const { notices } = this.state
         return (
-            <div className="toast-notification">
+            <TransitionGroup className="toast-notification">
                 {
-                    notices.map(notice => <Notice key={notice.key} {...notice} />)
+                    notices.map(notice => (
+                        <CSSTransition
+                            key={notice.key}
+                            classNames="toast-notice-wrapper notice"
+                            timeout={this.transitionTime}
+                        >
+                            <Notice {...notice} />
+                        </CSSTransition>
+                    ))
                 }
-            </div>
+            </TransitionGroup>
         )
     }
 }
