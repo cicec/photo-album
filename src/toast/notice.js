@@ -15,7 +15,7 @@ class Notice extends Component {
                 <svg className="icon" aria-hidden="true">
                     <use xlinkHref={`#${icons[type]}`} />
                 </svg>
-                {content}
+                <span>{content}</span>
             </div>
         )
     }
