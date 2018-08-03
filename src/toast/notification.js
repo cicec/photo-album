@@ -32,7 +32,13 @@ class Notification extends Component {
 
     removeNotice(key) {
         this.setState(previousState => ({
-            notices: previousState.notices.filter(notice => notice.key !== key)
+            notices: previousState.notices.filter((notice) => {
+                if (notice.key === key) {
+                    if (notice.onClose) notice.onClose()
+                    return false
+                }
+                return true
+            })
         }))
     }
 

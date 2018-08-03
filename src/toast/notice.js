@@ -7,6 +7,7 @@ class Notice extends Component {
             success: 'icon-check-circle-fill',
             warning: 'icon-warning-circle-fill',
             error: 'icon-close-circle-fill',
+            loading: 'icon-loading'
         }
         const { type, content } = this.props
         return (
