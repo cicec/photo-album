@@ -8,7 +8,7 @@ import './sign-in.css'
 class SignIn extends Component {
     constructor() {
         super()
-        this.state = { name: '', password: '' }
+        this.state = { submitting: false, userInfo: { name: '', password: '' } }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.jumpToSignUpPage = this.jumpToSignUpPage.bind(this)
@@ -16,32 +16,36 @@ class SignIn extends Component {
 
     handleChange(event) {
         const { target } = event
-        this.setState({ [target.name]: target.value })
+        const { userInfo } = this.state
+        this.setState({ userInfo: { ...userInfo, [target.name]: target.value } })
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        const { name, password } = this.state
-        if (!name || !password) {
-            if (!name) {
-                Toast.warning('请输入用户名')
-            } else if (!password) {
-                Toast.warning('请输入密码')
-            }
-        } else {
-            const removeLoading = Toast.loading('正在登录', 0, () => {
-                Toast.success('登录成功！')
-            })
-            const { stores: { userStore } } = this.props
-            userStore.signIn(this.state).then((result) => {
-                if (result.status > 0) {
-                    removeLoading()
-                    const { history } = this.props
-                    history.push('/')
-                } else {
-                    Toast.error(result.message)
+        const { submitting } = this.state
+        if (!submitting) {
+            const { userInfo: { name, password } } = this.state
+            if (!name || !password) {
+                if (!name) {
+                    Toast.warning('请输入用户名')
+                } else if (!password) {
+                    Toast.warning('请输入密码')
                 }
-            })
+            } else {
+                this.setState({ submitting: true })
+                const { stores: { userStore } } = this.props
+                const { userInfo } = this.state
+                userStore.signIn(userInfo).then((result) => {
+                    this.setState({ submitting: false })
+                    if (result.status > 0) {
+                        Toast.success('登录成功！')
+                        const { history } = this.props
+                        history.push('/')
+                    } else {
+                        Toast.error(result.message)
+                    }
+                })
+            }
         }
     }
 
@@ -51,7 +55,7 @@ class SignIn extends Component {
     }
 
     render() {
-        const { name, password } = this.state
+        const { userInfo: { name, password } } = this.state
         return (
             <div className="sign-in">
                 <form className="clearfix" onSubmit={this.handleSubmit}>
