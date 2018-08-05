@@ -42,15 +42,35 @@
     font-size: .15rem;
 }
 
-.sign-in>form .signinBtn {
+.sign-in>form .sign-in-btn {
     width: 100%;
-    padding: .1rem;
+    min-height: .42rem;
     border-radius: .2rem;
     background: #50C881;
     color: #FFFFFF;
 }
 
-.sign-in>form .signupBtn {
+.sign-in>form .sign-in-btn>span,
+.sign-in>form .sign-in-btn>svg {
+    position: relative;
+    top: 1px;
+}
+
+.sign-in>form .sign-in-btn>svg {
+    font-size: .22rem;
+    animation: rotating 1s linear infinite;
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sign-in>form .sign-up-btn {
     background: transparent;
     color: rgba(0, 0, 0, 0.4);
     margin-top: .1rem;

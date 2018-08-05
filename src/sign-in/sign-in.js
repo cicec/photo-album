@@ -14,11 +14,24 @@ class SignIn extends Component {
         this.jumpToSignUpPage = this.jumpToSignUpPage.bind(this)
     }
 
+    getSignInBtnContent() {
+        const { submitting } = this.state
+        if (submitting) {
+            return (
+                <svg className="icon" aria-hidden="true">
+                    <use xlinkHref="#icon-loading" />
+                </svg>
+            )
+        }
+        return <span>登录</span>
+    }
+
     handleChange(event) {
         const { target } = event
         const { userInfo } = this.state
         this.setState({ userInfo: { ...userInfo, [target.name]: target.value } })
     }
+
 
     handleSubmit(event) {
         event.preventDefault()
@@ -71,8 +84,10 @@ class SignIn extends Component {
                         </svg>
                         <input type="password" name="password" id="password" placeholder="请输入密码" value={password} onChange={this.handleChange} />
                     </label>
-                    <button type="submit" className="signinBtn">登录</button>
-                    <button type="button" className="signupBtn" onClick={this.jumpToSignUpPage}>没有账号？现在注册！</button>
+                    <button type="submit" className="sign-in-btn">
+                        {this.getSignInBtnContent()}
+                    </button>
+                    <button type="button" className="sign-up-btn" onClick={this.jumpToSignUpPage}>没有账号？现在注册！</button>
                 </form>
             </div>
         )

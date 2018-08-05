@@ -14,6 +14,18 @@ class SignUp extends Component {
         this.jumpToSignInPage = this.jumpToSignInPage.bind(this)
     }
 
+    getSignUpBtnContent() {
+        const { submitting } = this.state
+        if (submitting) {
+            return (
+                <svg className="icon" aria-hidden="true">
+                    <use xlinkHref="#icon-loading" />
+                </svg>
+            )
+        }
+        return <span>注册</span>
+    }
+
     handleChange(event) {
         const { target } = event
         const { userInfo } = this.state
@@ -34,9 +46,11 @@ class SignUp extends Component {
             } else if (password.length < 6) {
                 Toast.warning('请至少输入6位密码')
             } else {
+                this.setState({ submitting: true })
                 const { stores: { userStore } } = this.props
                 const { userInfo } = this.state
                 userStore.signUp(userInfo).then((result) => {
+                    this.setState({ submitting: false })
                     if (result.status > 0) {
                         Toast.success('注册成功，赶快登录吧')
                         const { history } = this.props
@@ -83,8 +97,10 @@ class SignUp extends Component {
                         </svg>
                         <input type="text" name="email" id="email" placeholder="请输入邮箱（可选）" value={email} onChange={this.handleChange} />
                     </label>
-                    <button type="submit" className="signupBtn">注册</button>
-                    <button type="button" className="signinBtn" onClick={this.jumpToSignInPage}>已有账号？马上登录！</button>
+                    <button type="submit" className="sign-up-btn">
+                        {this.getSignUpBtnContent()}
+                    </button>
+                    <button type="button" className="sign-in-btn" onClick={this.jumpToSignInPage}>已有账号？马上登录！</button>
                 </form>
             </div>
         )
