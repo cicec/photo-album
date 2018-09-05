@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import Toast from '../toast'
+import Toast from '../components/toast'
 import './sign-in.css'
 
 @inject('stores')
