@@ -7,7 +7,7 @@ class AlbumItem extends Component {
     constructor() {
         super()
         this.handleClick = this.handleClick.bind(this)
-        this.removeAlbum = this.removeAlbum.bind(this)
+        this.removeSelf = this.removeSelf.bind(this)
     }
 
     handleClick() {
@@ -16,13 +16,9 @@ class AlbumItem extends Component {
         photoStore.getPhotoList(uiState.viewedAlbumId)
     }
 
-    removeAlbum() {
-        const { stores: { uiState, albumStore, initStore } } = this.props
-        albumStore.removeAlbum({ id: uiState.viewedAlbumId }).then((result) => {
-            if (result.status > 0) {
-                initStore()
-            }
-        })
+    removeSelf() {
+        const { albumInfo: { id }, removeAlbum } = this.props
+        removeAlbum(id)
     }
 
     render() {
@@ -42,7 +38,7 @@ class AlbumItem extends Component {
                         <h4>{picsNumber}</h4>
                         <p>pics</p>
                     </div>
-                    <button type="button" className="remove-btn" onClick={this.removeAlbum}>
+                    <button type="button" className="remove-btn" onClick={this.removeSelf}>
                         <svg className="icon" aria-hidden="true">
                             <use xlinkHref="#icon-delete" />
                         </svg>

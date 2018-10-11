@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
+import Modal from '../../components/modal'
 import AlbumItem from './album-item'
 import './nav-bar.css'
 
@@ -11,6 +12,7 @@ class NavBar extends Component {
         super()
         this.viewUserInfo = this.viewUserInfo.bind(this)
         this.addAlbum = this.addAlbum.bind(this)
+        this.removeAlbum = this.removeAlbum.bind(this)
         this.signOut = this.signOut.bind(this)
     }
 
@@ -24,10 +26,23 @@ class NavBar extends Component {
         uiState.changeCurrentState(uiState.states.ADDALBUM)
     }
 
+    removeAlbum(id) {
+        const { stores: { albumStore, initStore } } = this.props
+        Modal.confirm({
+            contentText: '这将删除您的整个相册，确定吗？',
+            onOk() {
+                albumStore.removeAlbum({ id }).then((result) => {
+                    if (result.status > 0) {
+                        initStore()
+                    }
+                })
+            }
+        })
+    }
+
     signOut() {
         const { stores: { userStore } } = this.props
         userStore.signOut().then((result) => {
-            console.log(result)
             if (result.status > 0) {
                 const { history } = this.props
                 history.push('/signin')
@@ -64,7 +79,14 @@ class NavBar extends Component {
                 <div className="gallery-list">
                     <ul>
                         {
-                            albumStore.albums.map(album => <AlbumItem key={album.id} albumInfo={album} picsNumber={photoStore.photos.length} />)
+                            albumStore.albums.map(album => (
+                                <AlbumItem
+                                    key={album.id}
+                                    albumInfo={album}
+                                    picsNumber={photoStore.photos.length}
+                                    removeAlbum={this.removeAlbum}
+                                />
+                            ))
                         }
                     </ul>
                 </div>
