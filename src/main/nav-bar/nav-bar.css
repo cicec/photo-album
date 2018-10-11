@@ -1,7 +1,22 @@
 .nav-bar {
     flex: 0 0 25%;
-    box-shadow: 0 0 60px #F4F4F4;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+}
+
+.nav-bar>header {
+    box-shadow: 0 0 60px #f6f6f6;
+}
+
+.nav-bar>main {
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+.nav-bar>main::-webkit-scrollbar {
+    display: none;
 }
 
 .user-info {
@@ -61,6 +76,7 @@
 .add-gallery {
     padding: .28rem;
     display: flex;
+    border-bottom: 1px solid #F4F4F4;
 }
 
 .add-gallery>button{
@@ -77,10 +93,10 @@
 .gallery-list>ul {
     list-style: none;
     padding: 0;
+    margin-bottom: .0rem;
 }
 
 .gallery-list>ul>li {
-    width: calc(100% + .1rem);
     border-top-right-radius: .06rem;
     border-bottom-right-radius: .06rem;
     transition: all .1s;
@@ -131,7 +147,7 @@
 .gallery-list>ul>li .number {
     position: absolute;
     top: 50%;
-    right: 14%;
+    right: 10%;
     transform: translateY(-50%);
     opacity: 0;
 }

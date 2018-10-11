@@ -55,41 +55,45 @@ class NavBar extends Component {
         const { user } = userStore
         return (
             <div className="nav-bar">
-                <div className="user-info">
-                    <button type="button" className="logout" onClick={this.signOut}>
-                        <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-logout" />
-                        </svg>
-                    </button>
-                    <button type="button" className="avatar" onClick={this.viewUserInfo}>
-                        <img src={user.avatar} alt="" />
-                    </button>
-                    <div className="info">
-                        <h4>{user.name}</h4>
-                        <p>{user.description}</p>
+                <header>
+                    <div className="user-info">
+                        <button type="button" className="logout" onClick={this.signOut}>
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-logout" />
+                            </svg>
+                        </button>
+                        <button type="button" className="avatar" onClick={this.viewUserInfo}>
+                            <img src={user.avatar} alt="" />
+                        </button>
+                        <div className="info">
+                            <h4>{user.name}</h4>
+                            <p>{user.description}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="add-gallery">
-                    <button type="button" onClick={this.addAlbum}>
-                        <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-plus" />
-                        </svg>
-                    </button>
-                </div>
-                <div className="gallery-list">
-                    <ul>
-                        {
-                            albumStore.albums.map(album => (
-                                <AlbumItem
-                                    key={album.id}
-                                    albumInfo={album}
-                                    picsNumber={photoStore.photos.length}
-                                    removeAlbum={this.removeAlbum}
-                                />
-                            ))
-                        }
-                    </ul>
-                </div>
+                    <div className="add-gallery">
+                        <button type="button" onClick={this.addAlbum}>
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-plus" />
+                            </svg>
+                        </button>
+                    </div>
+                </header>
+                <main>
+                    <div className="gallery-list">
+                        <ul>
+                            {
+                                albumStore.albums.map(album => (
+                                    <AlbumItem
+                                        key={album.id}
+                                        albumInfo={album}
+                                        picsNumber={photoStore.photos.length}
+                                        removeAlbum={this.removeAlbum}
+                                    />
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </main>
             </div>
         )
     }
