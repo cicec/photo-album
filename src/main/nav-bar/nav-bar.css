@@ -4,10 +4,11 @@
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
+    box-shadow: 0 0 60px #F4F4F4;
 }
 
 .nav-bar>header {
-    box-shadow: 0 0 60px #f6f6f6;
+    box-shadow: 0 20px 60px -6px #F6F6F6;
 }
 
 .nav-bar>main {
