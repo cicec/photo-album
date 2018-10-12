@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import Toast from '../../components/toast'
 import './user-card.css'
 
 @inject('stores')
@@ -38,8 +39,8 @@ class UserCard extends Component {
         const { stores: { userStore } } = this.props
         const { userInfo } = this.state
         userStore.modifyUserInfo(userInfo).then((result) => {
-            console.log(result)
             if (result.status > 0) {
+                Toast.success('用户信息已保存')
                 this.setState({ isChanged: false })
             }
         })

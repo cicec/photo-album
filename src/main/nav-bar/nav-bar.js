@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import Modal from '../../components/modal'
+import Toast from '../../components/toast'
 import AlbumItem from './album-item'
 import './nav-bar.css'
 
@@ -42,10 +43,16 @@ class NavBar extends Component {
 
     signOut() {
         const { stores: { userStore } } = this.props
-        userStore.signOut().then((result) => {
-            if (result.status > 0) {
-                const { history } = this.props
-                history.push('/signin')
+        const { history } = this.props
+        Modal.confirm({
+            contentText: '将退出登录，确定吗？',
+            onOk() {
+                userStore.signOut().then((result) => {
+                    if (result.status > 0) {
+                        Toast.success('用户已注销')
+                        history.push('/signin')
+                    }
+                })
             }
         })
     }
