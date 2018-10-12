@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import Toast from '../../components/toast'
 import './add-album.css'
 
 @inject('stores')
@@ -35,11 +36,15 @@ class AddAlbum extends Component {
     handleSubmit(event) {
         event.preventDefault()
         const { title, description } = this.state
-        if (!title || !description) return
+        if (!title || !description) {
+            Toast.warning('信息填写不完整')
+            return
+        }
         const { stores: { albumStore } } = this.props
         albumStore.addAlbum(this.state).then((result) => {
             if (result.status > 0) {
-                this.setState({ title: '', description: '' })
+                Toast.success('相册创建成功')
+                this.closeCard()
                 albumStore.getAlbumList()
             }
         })
