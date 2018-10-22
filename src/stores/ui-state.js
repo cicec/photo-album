@@ -3,12 +3,14 @@ import { observable } from 'mobx'
 class UiState {
     @observable currentState = this.states.DEFAULT
     @observable viewedAlbumId = 0
+    @observable viewedPhotoId = 0
 
     constructor() {
         this.states = {
             DEFAULT: 'default',
             USERINFO: 'user-info',
-            ADDALBUM: 'add-album'
+            ADDALBUM: 'add-album',
+            VIEWDETAILS: 'view-details'
         }
     }
 
@@ -18,6 +20,10 @@ class UiState {
 
     changeViewedAlbumId(id) {
         this.viewedAlbumId = id
+    }
+
+    changeViewedPhotoId(id) {
+        this.viewedPhotoId = id
     }
 }
 

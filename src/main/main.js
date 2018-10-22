@@ -4,6 +4,7 @@ import NavBar from './nav-bar'
 import PicsViewer from './pics-viewer'
 import UserCard from './user-card'
 import AddAlbum from './add-album'
+import ViewDetails from './view-details'
 
 @inject('stores')
 @observer
@@ -14,13 +15,14 @@ class Main extends Component {
     }
 
     render() {
-        const { stores: { uiState } } = this.props
+        const { stores: { uiState: { currentState, states } } } = this.props
         return (
             <main>
                 <NavBar />
                 <PicsViewer />
-                {uiState.currentState === uiState.states.USERINFO ? <UserCard /> : ''}
-                {uiState.currentState === uiState.states.ADDALBUM ? <AddAlbum /> : ''}
+                {currentState === states.USERINFO ? <UserCard /> : ''}
+                {currentState === states.ADDALBUM ? <AddAlbum /> : ''}
+                {currentState === states.VIEWDETAILS ? <ViewDetails /> : ''}
             </main>
         )
     }

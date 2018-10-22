@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
+import Toast from '../../components/toast'
 import './pics-viewer.css'
 
 @inject('stores')
@@ -8,6 +9,7 @@ class PicsViewer extends Component {
     constructor() {
         super()
         this.uploadPics = this.uploadPics.bind(this)
+        this.viewDetails = this.viewDetails.bind(this)
     }
 
     uploadPics(event) {
@@ -34,7 +36,7 @@ class PicsViewer extends Component {
                 reader.readAsDataURL(target.files[i])
             }
         } else {
-            console.log('没有相册被选中')
+            Toast.warning('没有相册被选中')
         }
     }
 
@@ -45,6 +47,12 @@ class PicsViewer extends Component {
                 photoStore.getPhotoList(uiState.viewedAlbumId)
             }
         })
+    }
+
+    viewDetails(id) {
+        const { stores: { uiState } } = this.props
+        uiState.changeViewedPhotoId(id)
+        uiState.changeCurrentState(uiState.states.VIEWDETAILS)
     }
 
     render() {
@@ -64,7 +72,7 @@ class PicsViewer extends Component {
                     <ul>
                         {
                             photoStore.photos.map(item => (
-                                <li key={item.id}>
+                                <li key={item.id} onClick={() => { this.viewDetails(item.id) }}>
                                     <div className="inner">
                                         <div className="img-wrapper">
                                             <img src={item.photo} alt="" />

@@ -1,0 +1,22 @@
+.view-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 1;
+    display: flex;
+}
+
+.view-details .card {
+    background: #FFFFFF;
+    margin: auto;
+    min-width: 6.4rem;
+    min-height: 60%;
+    border-radius: .2rem;
+    padding: .4rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .6);
+    text-align: center;
+    position: relative;
+}
