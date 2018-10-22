@@ -18,6 +18,17 @@ class PhotoStore {
             })
     }
 
+    getPhotoById(photoId) {
+        return fetch(`http://localhost:8080/photo-album/api/getphoto/${photoId}`, {
+            method: 'GET',
+            credentials: 'include',
+        }).then(response => response.json())
+            .then((result) => {
+                const { photoList } = result
+                return photoList[0]
+            })
+    }
+
     submitPhotoInfo(path, info) {
         return fetch(`${this.url}${path}`, {
             method: 'POST',

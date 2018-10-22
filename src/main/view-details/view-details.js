@@ -8,6 +8,7 @@ class UserCard extends Component {
     constructor() {
         super()
         this.closeCard = this.closeCard.bind(this)
+        this.state = { photoUrl: '' }
     }
 
     closeCard() {
@@ -16,7 +17,11 @@ class UserCard extends Component {
     }
 
     render() {
-        const { stores: { uiState: { viewedPhotoId } } } = this.props
+        const { stores: { uiState: { viewedPhotoId }, photoStore: { getPhotoById } } } = this.props
+        getPhotoById(viewedPhotoId).then((photo) => {
+            this.setState({ photoUrl: photo.photo })
+        })
+        const { photoUrl } = this.state
         return (
             <div className="view-details">
                 <div className="card">
@@ -26,7 +31,7 @@ class UserCard extends Component {
                         </svg>
                     </button>
 
-                    <h1>这是图</h1>
+                    <img src={photoUrl} alt="" />
                 </div>
             </div>
         )
