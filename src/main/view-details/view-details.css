@@ -12,11 +12,29 @@
 .view-details .card {
     background: #FFFFFF;
     margin: auto;
-    min-width: 6.4rem;
-    min-height: 60%;
+    width: 60%;
+    height: 90%;
     border-radius: .2rem;
-    padding: .4rem;
     box-shadow: 0 0 60px rgba(0, 0, 0, .6);
-    text-align: center;
     position: relative;
+    display: flex;
+}
+
+.view-details .card>img {
+    height: 72%;
+    margin: auto;
+}
+
+.view-details .card .close {
+    color: #A0A0A0;
+    background: transparent;
+    font-size: .22rem;
+    position: absolute;
+    top: .1rem;;
+    right: .1rem;
+    transition: .2s;
+}
+
+.view-details .card .close:hover {
+    color: #000000;
 }
