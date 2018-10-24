@@ -12,8 +12,9 @@
 .view-details .card {
     background: #FFFFFF;
     margin: auto;
-    width: 60%;
+    min-width: 60%;
     height: 90%;
+    padding: 0 .6rem;
     border-radius: .2rem;
     box-shadow: 0 0 60px rgba(0, 0, 0, .6);
     position: relative;
@@ -21,8 +22,8 @@
 }
 
 .view-details .card>img {
-    height: 72%;
-    margin: auto;
+    height: 84%;
+    margin: 7% auto 0;
 }
 
 .view-details .card .close {
@@ -36,5 +37,23 @@
 }
 
 .view-details .card .close:hover {
+    color: #000000;
+}
+
+.view-details .menu-bar {
+    position: absolute;
+    font-size: .22rem;
+    top: .2rem;
+    left: .2rem;
+}
+
+.view-details .menu-bar>button {
+    background: transparent;
+    outline: none;
+    color: #A0A0A0;
+    margin: 0 .06rem;
+}
+
+.view-details .menu-bar>button:hover {
     color: #000000;
 }

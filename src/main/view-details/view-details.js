@@ -32,6 +32,29 @@ class UserCard extends Component {
                     </button>
 
                     <img src={photoUrl} alt="" />
+
+                    <div className="menu-bar">
+                        <button type="button">
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-edit" />
+                            </svg>
+                        </button>
+                        <button type="button">
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-share" />
+                            </svg>
+                        </button>
+                        <button type="button">
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-delete" />
+                            </svg>
+                        </button>
+                        <button type="button">
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-ellipsis" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         )
