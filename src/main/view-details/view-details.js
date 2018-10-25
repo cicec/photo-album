@@ -31,8 +31,6 @@ class UserCard extends Component {
                         </svg>
                     </button>
 
-                    <img src={photoUrl} alt="" />
-
                     <div className="menu-bar">
                         <button type="button">
                             <svg className="icon" aria-hidden="true">
@@ -54,6 +52,10 @@ class UserCard extends Component {
                                 <use xlinkHref="#icon-ellipsis" />
                             </svg>
                         </button>
+                    </div>
+
+                    <div className="img-wrapper">
+                        <img src={photoUrl} alt="" />
                     </div>
                 </div>
             </div>

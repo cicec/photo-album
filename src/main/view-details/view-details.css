@@ -10,20 +10,53 @@
 }
 
 .view-details .card {
-    background: #FFFFFF;
+    background: #FCFCFC;
     margin: auto;
     min-width: 60%;
     height: 90%;
-    padding: 0 .6rem;
+    padding: 0 .8rem 0 1.6rem;
     border-radius: .2rem;
     box-shadow: 0 0 60px rgba(0, 0, 0, .6);
     position: relative;
+    overflow: hidden;
+}
+
+.view-details .card .menu-bar {
+    font-size: .22rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FFFFFF;
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+    box-shadow: 0 0 60px #F6F6F6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1rem;
+}
+
+.view-details .menu-bar>button {
+    background: transparent;
+    outline: none;
+    color: #A0A0A0;
+    margin: .2rem 0;
+}
+
+.view-details .menu-bar>button:hover {
+    color: #000000;
+}
+
+.view-details .card .img-wrapper {
+    height: 100%;
     display: flex;
 }
 
-.view-details .card>img {
-    height: 84%;
-    margin: 7% auto 0;
+.view-details .card .img-wrapper>img {
+    height: 90%;
+    margin: auto;
+    display: block;
 }
 
 .view-details .card .close {
@@ -31,29 +64,11 @@
     background: transparent;
     font-size: .22rem;
     position: absolute;
-    top: .1rem;;
+    top: .1rem;
     right: .1rem;
     transition: .2s;
 }
 
 .view-details .card .close:hover {
-    color: #000000;
-}
-
-.view-details .menu-bar {
-    position: absolute;
-    font-size: .22rem;
-    top: .2rem;
-    left: .2rem;
-}
-
-.view-details .menu-bar>button {
-    background: transparent;
-    outline: none;
-    color: #A0A0A0;
-    margin: 0 .06rem;
-}
-
-.view-details .menu-bar>button:hover {
     color: #000000;
 }
