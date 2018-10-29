@@ -40,15 +40,6 @@ class PicsViewer extends Component {
         }
     }
 
-    removePhoto(photoId) {
-        const { stores: { uiState, photoStore } } = this.props
-        photoStore.removePhoto({ id: photoId }).then((result) => {
-            if (result.status > 0) {
-                photoStore.getPhotoList(uiState.viewedAlbumId)
-            }
-        })
-    }
-
     viewDetails(id) {
         const { stores: { uiState } } = this.props
         uiState.changeViewedPhotoId(id)
