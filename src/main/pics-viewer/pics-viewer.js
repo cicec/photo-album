@@ -76,18 +76,10 @@ class PicsViewer extends Component {
                                     <div className="inner">
                                         <div className="img-wrapper">
                                             <img src={item.photo} alt="" />
-                                            <button
-                                                type="button"
-                                                className="remove-btn"
-                                                onClick={() => {
-                                                    this.removePhoto(item.id)
-                                                }}
-                                            >
-                                                <svg className="icon" aria-hidden="true">
-                                                    <use xlinkHref="#icon-delete" />
-                                                </svg>
-                                            </button>
                                         </div>
+                                        <svg className="icon" aria-hidden="true">
+                                            <use xlinkHref="#icon-eye" />
+                                        </svg>
                                     </div>
                                 </li>
                             ))

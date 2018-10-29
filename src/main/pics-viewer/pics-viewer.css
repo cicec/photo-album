@@ -75,20 +75,25 @@
     transition: all .2s;
 }
 
-.pics-viewer .imgs>ul>li .img-wrapper:hover::after {
+.pics-viewer .imgs>ul>li:hover {
+    cursor: pointer;
+}
+
+.pics-viewer .imgs>ul>li:hover .img-wrapper::after {
     background: rgba(0, 0, 0, .3);
 }
 
-.pics-viewer .imgs>ul>li .img-wrapper .remove-btn  {
+.pics-viewer .imgs>ul>li .icon  {
     background: transparent;
+    font-size: .32rem;
     position: absolute;
-    top: .3rem;
-    right: .3rem;
-    color: #DDDDDD;
-    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #CCCCCC;
     display: none;
 }
 
-.pics-viewer .imgs>ul>li .img-wrapper:hover .remove-btn {
+.pics-viewer .imgs>ul>li:hover .icon {
     display: block;
 }
