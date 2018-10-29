@@ -3,6 +3,7 @@
     background: #FCFCFC;
     padding: .4rem .6rem 0;
     overflow-y: scroll;
+    position: relative;
 }
 
 .pics-viewer::-webkit-scrollbar {
@@ -96,4 +97,23 @@
 
 .pics-viewer .imgs>ul>li:hover .icon {
     display: block;
+}
+
+.pics-viewer .empty {
+    color: #898989;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pics-viewer .empty .icon {
+    font-size: .32rem;
+    text-align: center;
+}
+
+.pics-viewer .empty>p {
+    font-weight: bold;
+    margin-top: .1rem;
 }

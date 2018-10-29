@@ -46,8 +46,39 @@ class PicsViewer extends Component {
         uiState.changeCurrentState(uiState.states.VIEWDETAILS)
     }
 
+    showPhotoList() {
+        const { stores: { photoStore: { photos } } } = this.props
+        if (photos.length > 0) {
+            return (
+                <ul>
+                    {
+                        photos.map(item => (
+                            <li key={item.id} onClick={() => { this.viewDetails(item.id) }}>
+                                <div className="inner">
+                                    <div className="img-wrapper">
+                                        <img src={item.photo} alt="" />
+                                    </div>
+                                    <svg className="icon" aria-hidden="true">
+                                        <use xlinkHref="#icon-eye" />
+                                    </svg>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            )
+        }
+        return (
+            <div className="empty">
+                <svg className="icon" aria-hidden="true">
+                    <use xlinkHref="#icon-frown" />
+                </svg>
+                <p>相册空空如也</p>
+            </div>
+        )
+    }
+
     render() {
-        const { stores: { photoStore } } = this.props
         return (
             <div className="pics-viewer">
                 <div className="header">
@@ -60,22 +91,9 @@ class PicsViewer extends Component {
                     <input type="file" accept="image/*" id="upload-pics" className="upload-pics" multiple onChange={this.uploadPics} />
                 </div>
                 <div className="imgs">
-                    <ul>
-                        {
-                            photoStore.photos.map(item => (
-                                <li key={item.id} onClick={() => { this.viewDetails(item.id) }}>
-                                    <div className="inner">
-                                        <div className="img-wrapper">
-                                            <img src={item.photo} alt="" />
-                                        </div>
-                                        <svg className="icon" aria-hidden="true">
-                                            <use xlinkHref="#icon-eye" />
-                                        </svg>
-                                    </div>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                    {
+                        this.showPhotoList()
+                    }
                 </div>
             </div>
         )
