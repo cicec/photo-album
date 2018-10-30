@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import popupCard from '../popup-card'
 import Modal from '../../components/modal'
 import './view-details.css'
 
@@ -8,14 +9,8 @@ import './view-details.css'
 class UserCard extends Component {
     constructor() {
         super()
-        this.closeCard = this.closeCard.bind(this)
         this.removeSelf = this.removeSelf.bind(this)
         this.state = { photoUrl: '' }
-    }
-
-    closeCard() {
-        const { stores: { uiState } } = this.props
-        uiState.changeCurrentState(uiState.states.DEFAULT)
     }
 
     removeSelf() {
@@ -43,43 +38,35 @@ class UserCard extends Component {
         const { photoUrl } = this.state
         return (
             <div className="view-details">
-                <div className="card">
-                    <button type="button" className="close" onClick={this.closeCard}>
+                <div className="menu-bar">
+                    <button type="button">
                         <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-close" />
+                            <use xlinkHref="#icon-edit" />
                         </svg>
                     </button>
+                    <button type="button">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-share" />
+                        </svg>
+                    </button>
+                    <button type="button" onClick={this.removeSelf}>
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-delete" />
+                        </svg>
+                    </button>
+                    <button type="button">
+                        <svg className="icon" aria-hidden="true">
+                            <use xlinkHref="#icon-ellipsis" />
+                        </svg>
+                    </button>
+                </div>
 
-                    <div className="menu-bar">
-                        <button type="button">
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-edit" />
-                            </svg>
-                        </button>
-                        <button type="button">
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-share" />
-                            </svg>
-                        </button>
-                        <button type="button" onClick={this.removeSelf}>
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-delete" />
-                            </svg>
-                        </button>
-                        <button type="button">
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-ellipsis" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div className="img-wrapper">
-                        <img src={photoUrl} alt="" />
-                    </div>
+                <div className="img-wrapper">
+                    <img src={photoUrl} alt="" />
                 </div>
             </div>
         )
     }
 }
 
-export default UserCard
+export default popupCard(UserCard)

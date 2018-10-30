@@ -1,19 +1,8 @@
 .view-details {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, .4);
-    z-index: 1;
-    display: flex;
-}
-
-.view-details .card {
     background: #FCFCFC;
     margin: auto;
-    min-width: 60%;
-    height: 90%;
+    min-width: 60vw;
+    height: 90vh;
     padding: 0 .8rem 0 1.6rem;
     border-radius: .2rem;
     box-shadow: 0 0 60px rgba(0, 0, 0, .6);
@@ -21,7 +10,7 @@
     overflow: hidden;
 }
 
-.view-details .card .menu-bar {
+.view-details .menu-bar {
     font-size: .22rem;
     display: flex;
     flex-direction: column;
@@ -48,18 +37,18 @@
     color: #000000;
 }
 
-.view-details .card .img-wrapper {
+.view-details .img-wrapper {
     height: 100%;
     display: flex;
 }
 
-.view-details .card .img-wrapper>img {
+.view-details .img-wrapper>img {
     height: 90%;
     margin: auto;
     display: block;
 }
 
-.view-details .card .close {
+.view-details .close {
     color: #A0A0A0;
     background: transparent;
     font-size: .22rem;
@@ -69,6 +58,6 @@
     transition: .2s;
 }
 
-.view-details .card .close:hover {
+.view-details .close:hover {
     color: #000000;
 }
