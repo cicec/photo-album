@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import popupCard from '../popup-card'
 import Toast from '../../components/toast'
 import './add-album.css'
 
@@ -9,14 +10,8 @@ class AddAlbum extends Component {
     constructor() {
         super()
         this.state = { title: '', description: '' }
-        this.closeCard = this.closeCard.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    closeCard() {
-        const { stores: { uiState } } = this.props
-        uiState.changeCurrentState(uiState.states.DEFAULT)
     }
 
     handleChange(event) {
@@ -54,31 +49,24 @@ class AddAlbum extends Component {
         const { title, description } = this.state
         return (
             <div className="add-album">
-                <div className="card">
-                    <button type="button" className="close" onClick={this.closeCard}>
-                        <svg className="icon" aria-hidden="true">
-                            <use xlinkHref="#icon-close" />
-                        </svg>
-                    </button>
-                    <h2>新建相册</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <label htmlFor="cover-input" className="cover-label">
-                            <div className="cover">
-                                <div className="img-wrapper">
-                                    <img src="http://localhost:8080/photo-album/api/image/album-cover-default.jpg" alt="" ref={(e) => { this.coverImage = e }} />
-                                </div>
+                <h2>新建相册</h2>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="cover-input" className="cover-label">
+                        <div className="cover">
+                            <div className="img-wrapper">
+                                <img src="http://localhost:8080/photo-album/api/image/album-cover-default.jpg" alt="" ref={(e) => { this.coverImage = e }} />
                             </div>
-                            （挑一张喜欢的图片作为相册的封面吧）
-                        </label>
-                        <input type="file" accept="image/*" name="cover" id="cover-input" className="cover-input" onChange={this.handleChange} />
-                        <input type="text" id="title" className="title" name="title" placeholder="起个名字" value={title} onChange={this.handleChange} />
-                        <input type="text" id="description" className="description" name="description" placeholder="相册描述了解一下" value={description} onChange={this.handleChange} />
-                        <button type="submit" className="submit" onClick={this.handleSubmit}>就这样</button>
-                    </form>
-                </div>
+                        </div>
+                        （挑一张喜欢的图片作为相册的封面吧）
+                    </label>
+                    <input type="file" accept="image/*" name="cover" id="cover-input" className="cover-input" onChange={this.handleChange} />
+                    <input type="text" id="title" className="title" name="title" placeholder="起个名字" value={title} onChange={this.handleChange} />
+                    <input type="text" id="description" className="description" name="description" placeholder="相册描述了解一下" value={description} onChange={this.handleChange} />
+                    <button type="submit" className="submit" onClick={this.handleSubmit}>就这样</button>
+                </form>
             </div>
         )
     }
 }
 
-export default AddAlbum
+export default popupCard(AddAlbum)

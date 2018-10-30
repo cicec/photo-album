@@ -1,0 +1,34 @@
+.popup-card-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 1;
+    display: flex;
+}
+
+.popup-card {
+    background: #FFFFFF;
+    margin: auto;
+    border-radius: .2rem;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .6);
+    position: relative;
+}
+
+.popup-card .close {
+    color: #A0A0A0;
+    background: transparent;
+    font-size: .22rem;
+    position: absolute;
+    top: .1rem;;
+    right: .1rem;
+    transition: .2s;
+    z-index: 1;
+}
+
+.popup-card .close:hover {
+    color: #000000;
+}
