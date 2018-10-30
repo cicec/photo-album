@@ -1,14 +1,3 @@
-.user-card {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, .4);
-    z-index: 1;
-    display: flex;
-}
-
 .user-card input,
 .user-card textarea {
     border: none;
@@ -25,7 +14,7 @@
     outline: none;
 }
 
-.user-card .card {
+.user-card {
     background: #FFFFFF;
     margin: auto;
     width: 3.4rem;
@@ -37,7 +26,7 @@
     position: relative;
 }
 
-.user-card .card .close {
+.user-card .close {
     color: #A0A0A0;
     background: transparent;
     font-size: .22rem;
@@ -47,29 +36,29 @@
     transition: .2s;
 }
 
-.user-card .card .close:hover {
+.user-card .close:hover {
     color: #000000;
 }
 
-.user-card .card .avatar {
+.user-card .avatar {
     margin-top: .2rem;
     text-align: center;
     width: 1rem;
     height: 1rem;
 }
 
-.user-card .card .avatar>img {
+.user-card .avatar>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 100%;
 }
 
-.user-card .card .avatar-input {
+.user-card .avatar-input {
     display: none;
 }
 
-.user-card .card .name {
+.user-card .name {
     color: #666666;
     font-size: .18rem;
     font-weight: bold;
@@ -77,23 +66,23 @@
     margin-bottom: .04rem;
 }
 
-.user-card .card .description {
+.user-card .description {
     color: #A0A0A0;
     font-size: .15rem;
     text-align: center;
     margin-bottom: .1rem;
 }
 
-.user-card .card .phone-label,
-.user-card .card .email-label {
+.user-card .phone-label,
+.user-card .email-label {
     width: 100%;
     position: relative;
     margin: 0;
     text-align: right;
 }
 
-.user-card .card .phone-label>input,
-.user-card .card .email-label>input {
+.user-card .phone-label>input,
+.user-card .email-label>input {
     font-size: .15rem;
     color: #666666;
     width: 72%;
@@ -101,7 +90,7 @@
     margin: .1rem;
 }
 
-.user-card .card .save {
+.user-card .save {
     width: 60%;
     padding: .04rem;
     border-radius: .2rem;
