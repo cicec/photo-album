@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
+import { CSSTransition } from 'react-transition-group'
 import './popup-card.css'
 
 function popupCard(WrappedComponent) {
@@ -9,24 +10,40 @@ function popupCard(WrappedComponent) {
         constructor(props) {
             super(props)
             this.closeCard = this.closeCard.bind(this)
+            this.transitionTime = 300
+            this.state = { showCard: false }
+        }
+
+        componentDidMount() {
+            this.setState({ showCard: true })
         }
 
         closeCard() {
-            const { stores: { uiState } } = this.props
-            uiState.changeCurrentState(uiState.states.DEFAULT)
+            this.setState({ showCard: false })
+            setTimeout(() => {
+                const { stores: { uiState } } = this.props
+                uiState.changeCurrentState(uiState.states.DEFAULT)
+            }, this.transitionTime)
         }
 
         render() {
+            const { showCard } = this.state
             return (
                 <div className="popup-card-wrapper">
-                    <div className="popup-card">
-                        <button type="button" className="close" onClick={this.closeCard}>
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-close" />
-                            </svg>
-                        </button>
-                        <WrappedComponent {...this.props} />
-                    </div>
+                    <CSSTransition
+                        in={showCard}
+                        timeout={this.transitionTime}
+                        classNames="popup-card-transition"
+                    >
+                        <div className="popup-card">
+                            <button type="button" className="close" onClick={this.closeCard}>
+                                <svg className="icon" aria-hidden="true">
+                                    <use xlinkHref="#icon-close" />
+                                </svg>
+                            </button>
+                            <WrappedComponent {...this.props} />
+                        </div>
+                    </CSSTransition>
                 </div>
             )
         }
