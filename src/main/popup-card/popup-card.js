@@ -29,22 +29,28 @@ function popupCard(WrappedComponent) {
         render() {
             const { showCard } = this.state
             return (
-                <div className="popup-card-wrapper">
-                    <CSSTransition
-                        in={showCard}
-                        timeout={this.transitionTime}
-                        classNames="popup-card-transition"
-                    >
-                        <div className="popup-card">
-                            <button type="button" className="close" onClick={this.closeCard}>
-                                <svg className="icon" aria-hidden="true">
-                                    <use xlinkHref="#icon-close" />
-                                </svg>
-                            </button>
-                            <WrappedComponent {...this.props} />
-                        </div>
-                    </CSSTransition>
-                </div>
+                <CSSTransition
+                    in={showCard}
+                    timeout={this.transitionTime}
+                    classNames="popup-card-wrapper-transition"
+                >
+                    <div className={`popup-card-wrapper ${showCard ? 'active' : ''}`}>
+                        <CSSTransition
+                            in={showCard}
+                            timeout={this.transitionTime}
+                            classNames="popup-card-transition"
+                        >
+                            <div className="popup-card">
+                                <button type="button" className="close" onClick={this.closeCard}>
+                                    <svg className="icon" aria-hidden="true">
+                                        <use xlinkHref="#icon-close" />
+                                    </svg>
+                                </button>
+                                <WrappedComponent {...this.props} />
+                            </div>
+                        </CSSTransition>
+                    </div>
+                </CSSTransition>
             )
         }
     }
