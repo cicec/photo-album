@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
+import QueueAnim from 'rc-queue-anim'
 import Toast from '../../components/toast'
 import './pics-viewer.css'
 
@@ -50,10 +51,14 @@ class PicsViewer extends Component {
         const { stores: { photoStore: { photos } } } = this.props
         if (photos.length > 0) {
             return (
-                <ul>
+                <QueueAnim
+                    className="photo-list"
+                    interval={[80, 0]}
+                    delay={[450, 0]}
+                >
                     {
                         photos.map(item => (
-                            <li key={item.id} onClick={() => { this.viewDetails(item.id) }}>
+                            <div className="photo" key={item.id} onClick={() => { this.viewDetails(item.id) }}>
                                 <div className="inner">
                                     <div className="img-wrapper">
                                         <img src={item.photo} alt="" />
@@ -62,10 +67,10 @@ class PicsViewer extends Component {
                                         <use xlinkHref="#icon-eye" />
                                     </svg>
                                 </div>
-                            </li>
+                            </div>
                         ))
                     }
-                </ul>
+                </QueueAnim>
             )
         }
         return (
