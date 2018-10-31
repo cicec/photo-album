@@ -16,7 +16,7 @@ class UserCard extends Component {
     removeSelf() {
         const { stores: { uiState, photoStore } } = this.props
         const photoId = uiState.viewedPhotoId
-        const { closeCard } = this
+        const { closeCard } = this.props
         Modal.confirm({
             contentText: '确定要删除吗？',
             onOk() {

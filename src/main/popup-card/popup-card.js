@@ -46,7 +46,7 @@ function popupCard(WrappedComponent) {
                                         <use xlinkHref="#icon-close" />
                                     </svg>
                                 </button>
-                                <WrappedComponent {...this.props} />
+                                <WrappedComponent closeCard={this.closeCard} {...this.props} />
                             </div>
                         </CSSTransition>
                     </div>
