@@ -42,7 +42,7 @@
 .popup-card-transition-enter-active {
     opacity: 1;
     transform: scale(1);
-    transition: all 300ms ease-out;
+    transition: all 300ms;
 }
 
 .popup-card-transition-exit {
@@ -53,5 +53,5 @@
 .popup-card-transition-exit-active {
     opacity: 0.01;
     transform: scale(0.8);
-    transition: all 300ms ease-out;
+    transition: all 300ms;
 }
