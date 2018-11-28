@@ -1,9 +1,97 @@
 .admin {
     height: 100vh;
     background: #E9EAF0;
+    display: flex;
 }
 
-.admin .user-list>li>img {
-    width: 1rem;
-    height: 1rem;
+.admin>main {
+    background: #FAFAFA;
+    width: 72%;
+    height: 90%;
+    margin: auto;
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+}
+
+.admin .side-nav {
+    flex: 0 0 14%;
+    padding: 1.2rem 0;
+    background: #FFFFFF;
+}
+
+.admin .side-nav>ul>li {
+    height: .52rem;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.admin .side-nav>ul>li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 100%;
+    background: #FE5C74;
+}
+
+.admin .side-nav>ul>li>svg {
+    font-size: .32rem;
+    color: #FE5C74;
+    display: block;
+    margin: auto;
+}
+
+.admin .content {
+    flex: 0 0 86%;
+    overflow: scroll;
+}
+
+.admin .content::-webkit-scrollbar {
+    display: none;
+}
+
+.admin .content .user-list {
+    margin: 0;
+}
+
+.admin .content .user-list>li {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: .8rem auto;
+    position: relative;
+}
+
+.admin .content .user-list>li>img {
+    width: .7rem;
+    height: .7rem;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.admin .content .user-list>li>h2 {
+    color: #666666;
+    font-size: .18rem;
+    margin-left: .4rem;
+}
+
+.admin .content .user-list>li .numbers {
+    color: #666666;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+}
+
+.admin .content .user-list>li .numbers>p {
+    margin-left: .2rem;
+}
+
+.admin .content .user-list>li .numbers>p>svg {
+    margin-right: .04rem;
 }

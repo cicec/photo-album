@@ -15,7 +15,7 @@ class Admin extends Component {
         return (
             <div className="admin">
                 <main>
-                    <div className="side-nav-bar">
+                    <div className="side-nav">
                         <ul>
                             <li>
                                 <svg className="icon" aria-hidden="true">
@@ -32,18 +32,20 @@ class Admin extends Component {
                                     <li key={user.id}>
                                         <img src={user.avatar} alt="" />
                                         <h2>{user.name}</h2>
-                                        <p>
-                                            <svg className="icon" aria-hidden="true">
-                                                <use xlinkHref="#icon-folder-fill" />
-                                            </svg>
-                                            {user.albumNumber}
-                                        </p>
-                                        <p>
-                                            <svg className="icon" aria-hidden="true">
-                                                <use xlinkHref="#icon-image-fill" />
-                                            </svg>
-                                            {user.photoNumber}
-                                        </p>
+                                        <div className="numbers">
+                                            <p>
+                                                <svg className="icon" aria-hidden="true">
+                                                    <use xlinkHref="#icon-folder-fill" />
+                                                </svg>
+                                                {user.albumNumber}
+                                            </p>
+                                            <p>
+                                                <svg className="icon" aria-hidden="true">
+                                                    <use xlinkHref="#icon-image-fill" />
+                                                </svg>
+                                                {user.photoNumber}
+                                            </p>
+                                        </div>
                                     </li>
                                 ))
                             }
