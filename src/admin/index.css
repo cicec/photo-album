@@ -1,3 +1,9 @@
 .admin {
     height: 100vh;
+    background: #E9EAF0;
+}
+
+.admin .user-list>li>img {
+    width: 1rem;
+    height: 1rem;
 }

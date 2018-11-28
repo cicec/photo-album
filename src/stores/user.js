@@ -3,6 +3,7 @@ import config from './config.json'
 
 class UserStore {
     @observable user = { signed: true }
+    @observable allUserInfo = []
     url = config.apiUrl
 
     submitUserInfo(path, info) {
@@ -49,6 +50,15 @@ class UserStore {
                 this.user = result.user
             }
             return result
+        })
+    }
+
+    getAllUserInfo() {
+        return fetch(`${this.url}/getuserall`, {
+            method: 'GET',
+            credentials: 'include',
+        }).then(response => response.json()).then((result) => {
+            this.allUserInfo = result
         })
     }
 }
