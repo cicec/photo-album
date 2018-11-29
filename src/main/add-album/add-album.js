@@ -35,11 +35,11 @@ class AddAlbum extends Component {
             Toast.warning('信息填写不完整')
             return
         }
-        const { stores: { albumStore } } = this.props
+        const { closeCard, stores: { albumStore } } = this.props
         albumStore.addAlbum(this.state).then((result) => {
             if (result.status > 0) {
                 Toast.success('相册创建成功')
-                this.closeCard()
+                closeCard()
                 albumStore.getAlbumList()
             }
         })
